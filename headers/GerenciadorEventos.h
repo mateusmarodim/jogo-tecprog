@@ -4,14 +4,21 @@ class GerenciadorEventos
 {
 private:
 	sf::Event event;
+	//Jogador* pj;
 	//GerenciadorGrafico gerenciadorGrafico;
 
 public:
+
+	enum Evento
+	{
+		comeco,andarEsquerda, andarDireita
+	};
+
 	GerenciadorEventos();
 	~GerenciadorEventos();
 
-	void eventos();
+	Evento eventos();
 
-	
+
 };
 

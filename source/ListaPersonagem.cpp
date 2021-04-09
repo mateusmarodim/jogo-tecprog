@@ -63,6 +63,17 @@ void ListaPersonagem::atualizar(float t)
 	}
 }
 
+/*void ListaPersonagem::atualizarE(GerenciadorEventos& ge)
+{
+	Personagem* pp = lp.voltarInicio();
+
+	while (pp != nullptr)
+	{
+		pp->atualizar(ge);
+		pp = lp.irProximo();
+	}
+}*/
+
 /*
 Personagem* ListaPersonagem::voltarInicio()
 {

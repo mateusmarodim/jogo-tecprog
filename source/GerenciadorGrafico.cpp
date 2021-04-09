@@ -2,7 +2,7 @@
 #include <iostream>
 
 GerenciadorGrafico::GerenciadorGrafico():
-	janela{ new sf::RenderWindow(sf::VideoMode(800, 600), "Jogo")},//arrumar com os vetores que foram criados dps
+	janela{ new sf::RenderWindow(sf::VideoMode(1080, 600), "Jogo")},//arrumar com os vetores que foram criados dps
 	camera(sf::Vector2f(400,300),sf::Vector2f(800,600))
 {
 	janela->setView(camera);

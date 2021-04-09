@@ -18,6 +18,7 @@ public:
 	void iniciliazarPersonagem(GerenciadorGrafico& g);
 	void desenharPersonagem(GerenciadorGrafico& g);
 	void atualizar(float t);
+	//void atualizarE(GerenciadorEventos& ge);
 
 	/*Personagem* voltarInicio();
 	Personagem* irProx();*/

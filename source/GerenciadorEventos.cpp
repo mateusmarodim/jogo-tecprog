@@ -1,4 +1,5 @@
 #include "GerenciadorEventos.h"
+#include <iostream>
 
 GerenciadorEventos::GerenciadorEventos()
 {
@@ -9,12 +10,16 @@ GerenciadorEventos::~GerenciadorEventos()
 {
 }
 
-void GerenciadorEventos::eventos()
+GerenciadorEventos::Evento GerenciadorEventos::eventos()
 {
-	/*while (gerenciadorGrafico.getJanela()->pollEvent(event))
-	{
-		if (event.type == sf::Event::Closed)
-			gerenciadorGrafico.getJanela()->close();
-	}*/
-}
 
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
+	{
+		return andarEsquerda;
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
+	{
+		return andarDireita;
+	}
+	return comeco;
+}

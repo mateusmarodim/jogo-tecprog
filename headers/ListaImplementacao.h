@@ -79,11 +79,11 @@ Lista<LT>::~Lista()
 template<typename LT>
 void Lista<LT>::inserir(LT info)
 {
-	ElementoLista<LT>* paux = NULL;
+	ElementoLista<LT>* paux = nullptr;
 	paux = new ElementoLista<LT>;
 	paux->setInfo(info);
 	
-		if (pPrimeiro == NULL)
+		if (pPrimeiro == nullptr)
 		{
 			pFim = paux;
 			pPrimeiro = paux;
@@ -101,7 +101,7 @@ void Lista<LT>::inserir(LT info)
 template<typename LT>
 void Lista<LT>::excluir()
 {
-	ElementoLista<LT>* paux = NULL;
+	ElementoLista<LT>* paux = nullptr;
 	paux = pFim;
 
 	while (paux != nullptr)
@@ -120,7 +120,7 @@ template<typename LT>
 LT Lista<LT>::voltarInicio()
 {
 	pAtual = pPrimeiro;
-	if (pAtual == NULL)
+	if (pAtual == nullptr)
 		return nullptr;
 	return pAtual->getInfo();
 }
@@ -129,7 +129,7 @@ template<typename LT>
 LT Lista<LT>::irProximo()
 {
 	pAtual = pAtual->getProx();
-	if (pAtual == NULL)
+	if (pAtual == nullptr)
 		return nullptr;
 	return pAtual->getInfo();
 }
