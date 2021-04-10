@@ -2,7 +2,7 @@
 #include <iostream>>
 
 Jogador::Jogador(Vetor2F pos, Vetor2F vel):
-	Personagem(pos,vel, "sorvetao.jpg")
+	EntidadeColidivel(pos,vel, "sorvetao.jpg")
 {
 	posicao = Vetor2F(400.0, 400.0);
 }
@@ -21,8 +21,10 @@ void Jogador::desenhar(GerenciadorGrafico& gg)
 	gg.desenhar(caminho, posicao);
 }
 
-void Jogador::atualizar(GerenciadorEventos& ge, float t)
+/*void Jogador::atualizar(float t)
 {
+	Singleton* s = Singleton::getInstance(ge);
+
 	//std::cout << "oi " << endl;
 	velocidade.x = 0.0f;
 	if (ge.eventos() == 1)
@@ -39,4 +41,19 @@ void Jogador::atualizar(GerenciadorEventos& ge, float t)
 
 	posicao.x += velocidade.x * t;
 
+}*/
+
+void Jogador::atualizar(float t)
+{
+	velocidade.x = 0;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
+	{
+		velocidade.x = -100.0f;
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
+	{
+		velocidade.x = 100.0f;
+	}
+	posicao.x += velocidade.x * t;
+	
 }

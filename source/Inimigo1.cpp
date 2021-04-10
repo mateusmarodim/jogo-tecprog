@@ -22,6 +22,9 @@ void Inimigo1::desenhar(GerenciadorGrafico& g)
 
 void Inimigo1::atualizar(float t)
 {
-
+	if (fmod(t,100000000))
+	{
+		std::cout << "salve" << endl;
+	}
 	posicao += velocidade * t;
 }

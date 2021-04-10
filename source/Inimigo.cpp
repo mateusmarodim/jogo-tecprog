@@ -1,7 +1,7 @@
 #include "Inimigo.h"
 
 Inimigo::Inimigo(Vetor2F pos, Vetor2F vel, const char* caminhoText):
-	Personagem(pos,vel,caminhoText)
+	EntidadeColidivel(pos,vel,caminhoText)
 {
 }
 
@@ -19,7 +19,4 @@ void Inimigo::desenhar(GerenciadorGrafico& g)
 	g.desenhar(caminho, posicao);
 }
 
-void Inimigo::atualizar(float t)
-{
-	posicao += velocidade * t;
-}
+

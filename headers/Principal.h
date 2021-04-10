@@ -1,5 +1,5 @@
 #pragma once
-#include "ListaPersonagem.h"
+#include "ListaEntidade.h"
 #include "GerenciadorEventos.h"
 #include "GerenciadorGrafico.h"
 #include "Jogador.h"
@@ -12,7 +12,7 @@ private:
 	GerenciadorGrafico gerenciadorGrafico;
 	GerenciadorEventos gerenciadorEventos;
 	sf::Clock relogio;
-	ListaPersonagem listaboneco;
+	ListaEntidade listaboneco;
 	Jogador jogador1;
 
 public:

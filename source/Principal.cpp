@@ -4,9 +4,9 @@
 //Vetor2F(220.0, 220.0), Vetor2F(5, 5), "Slime.png"
 Principal::Principal()
 {
-	/*listaboneco.inserir(new Personagem(Vetor2F(220.0, 220.0), Vetor2F(5, 50), "Slime.png"));
-	listaboneco.inserir(new Personagem(Vetor2F(200.0, 220.0), Vetor2F(100, 100), "sorvetao.jpg"));
-	listaboneco.inserir(new Personagem(Vetor2F(500.0, 520.0), Vetor2F(5, 5), "possivel inimigo.png"));*/
+	/*listaboneco.inserir(new Entidade(Vetor2F(220.0, 220.0), Vetor2F(5, 50), "Slime.png"));
+	listaboneco.inserir(new Entidade(Vetor2F(200.0, 220.0), Vetor2F(100, 100), "sorvetao.jpg"));
+	listaboneco.inserir(new Entidade(Vetor2F(500.0, 520.0), Vetor2F(5, 5), "possivel inimigo.png"));*/
 	listaboneco.inserir(new Jogador(Vetor2F(400.0, 400.0)));
 	listaboneco.inserir(new Inimigo1(Vetor2F(400.0 , 400.0)));
 
@@ -44,11 +44,6 @@ int Principal::executar()
 		//gerenciadorEventos.eventos();
 
 		listaboneco.atualizar(t.asSeconds());
-
-
-		jogador1.atualizar(gerenciadorEventos,t.asSeconds());
-
-		jogador1.desenhar(gerenciadorGrafico);
 
 		listaboneco.desenharPersonagem(gerenciadorGrafico);
 

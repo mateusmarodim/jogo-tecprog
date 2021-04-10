@@ -2,20 +2,21 @@
 #include "Vetor2D.h"
 #include "GerenciadorGrafico.h"
 #include "GerenciadorEventos.h"
+#include "Entidade.h"
 
-class Entidade
+
+class EntidadeColidivel : public Entidade
 {
-
 protected:
+	Vetor2F velocidade;
 	Vetor2F posicao;
 	const char* caminho;
 
 public:
-	Entidade(Vetor2F Pos = Vetor2F(0.0, 0.0), const char* caminhoText = nullptr);
-	~Entidade();
+	EntidadeColidivel(Vetor2F Pos = Vetor2F(0.0, 0.0), Vetor2F Vel = Vetor2F(0.0, 0.0), const char* caminhoText = nullptr);
+	~EntidadeColidivel();
 
 	virtual void inicializar(GerenciadorGrafico& g);
-	virtual void atualizar(float t) = 0;
 	virtual void desenhar(GerenciadorGrafico& g);
 
 };
