@@ -21,7 +21,12 @@ void EntidadeColidivel::desenhar(GerenciadorGrafico& g)
 {
 	g.desenhar(caminho, posicao);
 }
-
+/*
+void EntidadeColidivel::setVelocidade(Vetor2F vel)
+{
+	velocidade = vel;
+}
+*/
 const Vetor2F EntidadeColidivel::getPosicao()const
 {
 	return posicao;

@@ -1,5 +1,6 @@
 #include "../headers/GerenciadorColisoes.h"
 #include <iostream>
+#include <stdlib.h>
 
 GerenciadorColisoes::GerenciadorColisoes()
 {
@@ -12,7 +13,7 @@ GerenciadorColisoes::~GerenciadorColisoes()
 void GerenciadorColisoes::inserirColidivel(std::string tipoEntidade, EntidadeColidivel* ec)
 {
     colidiveis.emplace(tipoEntidade, ec);
-    std::cout << "ENTROU CARALHO" << std::endl;
+    //std::cout << "ENTROU CARALHO" << std::endl;
 }
 
 void GerenciadorColisoes::removerColidivel(std::multimap<std::string, EntidadeColidivel*>::iterator posicao)
@@ -36,6 +37,7 @@ void GerenciadorColisoes::verificaColisoes()
             {
                 if(estaoColidindo(itr->second, itrOutro->second))
                 {
+                    system("clear");
                     itr->second->colidir(itrOutro->second, itrOutro->first);
                     itrOutro->second->colidir(itr->second,itr->first);
                 }
@@ -73,7 +75,8 @@ bool GerenciadorColisoes::estaoColidindo(EntidadeColidivel* este, EntidadeColidi
        // std::cout << "colidiu :3" << std::endl;
         return true;
     }else{
-        std::cout << "n colidiu :(" << std::endl;
+        system("clear");
+        //std::cout << "n colidiu :(" << std::endl;
         return false;
     }
 

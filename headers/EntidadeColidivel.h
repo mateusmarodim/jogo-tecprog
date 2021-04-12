@@ -19,7 +19,7 @@ public:
 	virtual void inicializar(GerenciadorGrafico& g);
 	virtual void desenhar(GerenciadorGrafico& g);
 	virtual void colidir(EntidadeColidivel* outro, std::string tipoEntidade) = 0;
-
+	//void setVelocidade(Vetor2F vel);
 	virtual const Vetor2F getPosicao()const;
 	const Vetor2F getTamanho()const;
 

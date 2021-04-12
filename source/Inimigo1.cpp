@@ -27,4 +27,6 @@ void Inimigo1::atualizar(float t)
 void Inimigo1::colidir(EntidadeColidivel* outro, std::string tipoEntidade)
 {
 	std::cout << "Toma essa haha!" << std::endl;
+	//outro->setVelocidade(Vetor2F(-0.2,0.0));
+	
 }
