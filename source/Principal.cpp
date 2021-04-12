@@ -1,4 +1,4 @@
-#include "Principal.h"
+#include "../headers/Principal.h"
 #include <iostream>
 //#include "Vetor2D.h"
 //Vetor2F(220.0, 220.0), Vetor2F(5, 5), "Slime.png"
@@ -10,7 +10,14 @@ Principal::Principal()
 	listaboneco.inserir(new Jogador(Vetor2F(400.0, 400.0)));
 	listaboneco.inserir(new Inimigo1(Vetor2F(400.0 , 400.0)));
 
-	listaboneco.iniciliazarPersonagem(gerenciadorGrafico);
+	//Jogador jogador(Vetor2F(200.0,400.0));
+	//jogador.inicializar(gerenciadorGrafico);
+
+
+	listaboneco.iniciliazarEntidade(gerenciadorGrafico);
+
+	gerenciadorColisoes.inserirColidivel("jogador", static_cast<EntidadeColidivel*>(listaboneco.voltarInicio()));
+	gerenciadorColisoes.inserirColidivel("inimigo", static_cast<EntidadeColidivel*>(listaboneco.irProx()));
 }
 
 Principal::~Principal()
@@ -40,12 +47,16 @@ int Principal::executar()
 		}
 
 		gerenciadorGrafico.limpar();
-
+		gerenciadorGrafico.centralizar(listaboneco.voltarInicio()->getPosicao());
 		//gerenciadorEventos.eventos();
-
+		
+		//jogador.atualizar(t.asSeconds());
 		listaboneco.atualizar(t.asSeconds());
 
-		listaboneco.desenharPersonagem(gerenciadorGrafico);
+		//jogador.desenhar(gerenciadorGrafico);
+		listaboneco.desenharEntidade(gerenciadorGrafico);
+
+		gerenciadorColisoes.verificaColisoes();
 
 		gerenciadorGrafico.mostrar();
 

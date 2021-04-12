@@ -15,10 +15,11 @@ public:
 	Vetor2D operator *(int i);
 	Vetor2D operator *(float f);
 	Vetor2D operator *(double d);
+	bool operator <=(Vetor2D v);
 	T operator *(Vetor2D v);
 	T modulo();
 	Vetor2D versor();
-	//projeção desse vetor na direção de V
+	//projeï¿½ï¿½o desse vetor na direï¿½ï¿½o de V
 	Vetor2D projOrtogonal(Vetor2D v);
 
 };

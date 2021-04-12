@@ -1,4 +1,4 @@
-#include "ListaEntidade.h"
+#include "../headers/ListaEntidade.h"
 #include <iostream>
 
 ListaEntidade::ListaEntidade()
@@ -29,17 +29,18 @@ void ListaEntidade::excluir()
 }
 
 
-void ListaEntidade::iniciliazarPersonagem(GerenciadorGrafico& g)
+void ListaEntidade::iniciliazarEntidade(GerenciadorGrafico& g)
 {
 	Entidade* pp = lp.voltarInicio();
 	while (pp != NULL)
 	{
+		std::cout << "oi" << std::endl;
 		pp->inicializar(g);
 		pp = lp.irProximo();
 	}
 }
 
-void ListaEntidade::desenharPersonagem(GerenciadorGrafico& g)
+void ListaEntidade::desenharEntidade(GerenciadorGrafico& g)
 {
 	Entidade* pp = lp.voltarInicio();
 	
@@ -63,6 +64,7 @@ void ListaEntidade::atualizar(float t)
 	}
 }
 
+
 /*void ListaEntidade::atualizarE(GerenciadorEventos& ge)
 {
 	Entidade* pp = lp.voltarInicio();
@@ -74,13 +76,12 @@ void ListaEntidade::atualizar(float t)
 	}
 }*/
 
-/*
 Entidade* ListaEntidade::voltarInicio()
 {
-
+	return lp.voltarInicio();
 }
 
 Entidade* ListaEntidade::irProx()
 {
-
-}*/
+	return lp.irProximo();
+}

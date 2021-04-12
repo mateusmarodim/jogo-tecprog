@@ -4,11 +4,11 @@
 class Inimigo1 : public Inimigo
 {
 public:
-	Inimigo1(Vetor2F Pos = (0.0, 0.0), Vetor2F Vel = (0.0, 0.0));
+	Inimigo1(Vetor2F pos = (0.0, 0.0), Vetor2F vel = (0.0, 0.0), Vetor2F tam = (0.0,0.0));
 	~Inimigo1();
 
-	void inicializar(GerenciadorGrafico& g);
 	void desenhar(GerenciadorGrafico& g);
 	void atualizar(float t);
+	void colidir(EntidadeColidivel* outro, std::string tipoEntidade);
 };
 

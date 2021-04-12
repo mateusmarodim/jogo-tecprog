@@ -11,12 +11,12 @@ protected:
 	const char* caminho;
 
 public:
-	Entidade(Vetor2F Pos = Vetor2F(0.0, 0.0), const char* caminhoText = nullptr);
+	Entidade(Vetor2F pos = Vetor2F(0.0, 0.0), const char* caminhoText = nullptr);
 	~Entidade();
 
 	virtual void inicializar(GerenciadorGrafico& g);
 	virtual void atualizar(float t) = 0;
 	virtual void desenhar(GerenciadorGrafico& g);
-
+	virtual const Vetor2F getPosicao()const = 0;
 };
 

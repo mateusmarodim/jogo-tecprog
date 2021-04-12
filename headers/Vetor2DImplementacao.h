@@ -58,6 +58,16 @@ T Vetor2D<T>::operator *(Vetor2D<T> v)
 }
 
 template <typename T>
+bool Vetor2D<T>::operator <=(Vetor2D v)
+{
+	if(this->x <= v.x && this->y <= v.y)
+	{
+		return true;
+	}
+	return false;
+}
+
+template <typename T>
 T Vetor2D<T>::modulo()
 {
 	return sqrt(pow(x, 2) + pow (* y, 2));

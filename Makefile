@@ -8,7 +8,7 @@ CPP=$(wildcard ./source/*.cpp)
 H=$(wildcard ./headers/*.h)
 
 #Objetos compilados
-OBJ=$(subst .cpp .opp,$(subst source,objects,$(CPP)))
+OBJ=$(subst .cpp,.opp,$(subst source,objects,$(CPP)))
 
 #Compilador
 CC=g++
@@ -44,4 +44,5 @@ objDir:
 	@ mkdir -p objects
 
 clean:
-	@ $(RM) ./objects/*.opp $(PROJ_NAME) *~
+	@ $(RM) ./objects/*.opp $(PROJ_NAME) 
+	@ rmdir objects

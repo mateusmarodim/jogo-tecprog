@@ -6,19 +6,19 @@ private:
 	sf::Event event;
 	//Jogador* pj;
 	//GerenciadorGrafico gerenciadorGrafico;
+	GerenciadorEventos();
 
+	static GerenciadorEventos* g;
 public:
+
+	static GerenciadorEventos* getInstance();
 
 	enum Evento
 	{
 		comeco,andarEsquerda, andarDireita
 	};
 
-	GerenciadorEventos();
 	~GerenciadorEventos();
 
 	Evento eventos();
-
-
 };
-

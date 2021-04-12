@@ -15,13 +15,13 @@ public:
 	void inserir(Entidade* info);
 	void excluir();
 
-	void iniciliazarPersonagem(GerenciadorGrafico& g);
-	void desenharPersonagem(GerenciadorGrafico& g);
+	void iniciliazarEntidade(GerenciadorGrafico& g);
+	void desenharEntidade(GerenciadorGrafico& g);
 	void atualizar(float t);
 	//void atualizarE(GerenciadorEventos& ge);
 
-	/*Entidade* voltarInicio();
-	Entidade* irProx();*/
+	Entidade* voltarInicio();
+	Entidade* irProx();
 
 };
 

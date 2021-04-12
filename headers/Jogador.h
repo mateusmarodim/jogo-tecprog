@@ -7,12 +7,12 @@ class Jogador : public EntidadeColidivel
 private:
 	//GerenciadorEventos ge;
 public:
-	Jogador(Vetor2F Pos = (0.0,0.0), Vetor2F Vel = (0.0,0.0));
+	Jogador(Vetor2F pos = (0.0,0.0), Vetor2F vel = (0.0,0.0), Vetor2F tam = (0.0,0.0));
 	~Jogador();
 
-	void inicializar(GerenciadorGrafico& gg);
 	void desenhar(GerenciadorGrafico& gg);
 	void atualizar(float t);
+	void colidir(EntidadeColidivel* outro, std::string tipoEntidade);
 	//controle
 	//tratar
 };

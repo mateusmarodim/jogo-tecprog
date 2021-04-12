@@ -1,19 +1,14 @@
-#include "Jogador.h"
-#include <iostream>>
+#include "../headers/Jogador.h"
+#include <iostream>
 
-Jogador::Jogador(Vetor2F pos, Vetor2F vel):
-	EntidadeColidivel(pos,vel, "sorvetao.jpg")
+Jogador::Jogador(Vetor2F pos, Vetor2F vel, Vetor2F tam):
+	EntidadeColidivel(pos,vel,tam,"texture/sorvetao.png")
 {
-	posicao = Vetor2F(400.0, 400.0);
+	posicao = Vetor2F(200.0, 400.0);
 }
 
 Jogador::~Jogador()
 {
-}
-
-void Jogador::inicializar(GerenciadorGrafico& gg)
-{
-	gg.carregarTextura(caminho);
 }
 
 void Jogador::desenhar(GerenciadorGrafico& gg)
@@ -45,15 +40,31 @@ void Jogador::desenhar(GerenciadorGrafico& gg)
 
 void Jogador::atualizar(float t)
 {
-	velocidade.x = 0;
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
+    GerenciadorEventos* g = GerenciadorEventos::getInstance();
+
+    //std::cout << "oi " << endl;
+    velocidade.x = 0.0f;
+    if (g->eventos() == 1)
+    {
+        //std::cout << "tras" << endl;
+        velocidade.x = -100.0f;
+    }
+    if (g->eventos() == 2)
+    {
+        //std::cout << "frente" << endl;
+        velocidade.x = 100.0f;
+        //std::cout << velocidade.x << endl;
+    }
+
+    posicao.x += velocidade.x * t;
+
+}
+
+
+void Jogador::colidir(EntidadeColidivel* outro, std::string tipoEntidade)
+{
+	if(tipoEntidade == "inimigo")
 	{
-		velocidade.x = -100.0f;
+		std::cout << "Doeu >.<" << std::endl; 
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
-	{
-		velocidade.x = 100.0f;
-	}
-	posicao.x += velocidade.x * t;
-	
 }
