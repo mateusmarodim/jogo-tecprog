@@ -37,7 +37,7 @@ void GerenciadorColisoes::verificaColisoes()
             {
                 if(estaoColidindo(itr->second, itrOutro->second))
                 {
-                    system("clear");
+                    //system("clear");
                     itr->second->colidir(itrOutro->second, itrOutro->first);
                     itrOutro->second->colidir(itr->second,itr->first);
                 }
@@ -51,7 +51,7 @@ void GerenciadorColisoes::verificaColisoes()
     //std::cout <<"vamos com calma ae"<<std::endl;
 }   
 
-bool GerenciadorColisoes::estaoColidindo(EntidadeColidivel* este, EntidadeColidivel* outro)
+bool GerenciadorColisoes::estaoColidindo(EntidadeColidivel* este, EntidadeColidivel* outro/*, float empurrar*/)
 {
    
     Vetor2F posicaoEste = este->getPosicao();
@@ -66,17 +66,19 @@ bool GerenciadorColisoes::estaoColidindo(EntidadeColidivel* este, EntidadeColidi
     offsetEste.y = tamanhoEste.y*0.5;
     offsetOutro.y = tamanhoOutro.y*0.5;
 
-
     Vetor2F distanciaCentros;
-    distanciaCentros.x = abs(posicaoEste.x - posicaoOutro.x);
-    distanciaCentros.y = abs(posicaoEste.y - posicaoOutro.y);
-    if(distanciaCentros <= (offsetEste + offsetOutro))
+    distanciaCentros.x = posicaoEste.x - posicaoOutro.x;
+    distanciaCentros.y = posicaoEste.y - posicaoOutro.y;
+
+    float intersectaX = abs(distanciaCentros.x) - (offsetEste.x + offsetOutro.x);
+    float intersectaY = abs(distanciaCentros.y) - (offsetEste.y + offsetOutro.y);
+
+   
+    if(intersectaX < 0.0f && intersectaY < 0.0f)
     {
-       // std::cout << "colidiu :3" << std::endl;
         return true;
     }else{
-        system("clear");
-        //std::cout << "n colidiu :(" << std::endl;
+        //system("clear");
         return false;
     }
 

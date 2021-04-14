@@ -14,8 +14,12 @@ OBJ=$(subst .cpp,.opp,$(subst source,objects,$(CPP)))
 CC=g++
 
 #Flags do compilador
-CC_FLAGS= -c
-
+CC_FLAGS= -c		\
+	  -W		\
+	  -Wall		\
+	  -pedantic	\
+	  -std=c++11
+		
 #Flags sfml
 SFML= -lsfml-graphics	\
       -lsfml-window	\
@@ -25,6 +29,8 @@ SFML= -lsfml-graphics	\
 RM = rm -r
 
 all: objDir $(PROJ_NAME)
+	@ ./$(PROJ_NAME)
+	@ make clean
 
 $(PROJ_NAME): $(OBJ)
 	@ echo 'Building binary using G++ linker: $@'

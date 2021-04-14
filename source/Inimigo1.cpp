@@ -2,7 +2,7 @@
 #include <iostream>
 
 Inimigo1::Inimigo1(Vetor2F pos, Vetor2F vel, Vetor2F tam):
-	Inimigo(pos, vel, tam, "texture/possivel_inimigo.png")
+	Inimigo(pos, vel, tam, "texture/red.png")
 {
 }
 

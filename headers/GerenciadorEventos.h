@@ -15,7 +15,7 @@ public:
 
 	enum Evento
 	{
-		comeco,andarEsquerda, andarDireita
+		comeco,andarEsquerda,andarDireita,pular
 	};
 
 	~GerenciadorEventos();
