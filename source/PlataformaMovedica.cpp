@@ -17,6 +17,7 @@ void PlataformaMovedica::desenhar(GerenciadorGrafico& g)
 void PlataformaMovedica::atualizar(float t)
 {
 	float tempo = teste.getElapsedTime().asSeconds();
+	velocidade.y -= 40.0f * t;
 
 	if (tempo >= 2.0)
 	{
@@ -26,10 +27,11 @@ void PlataformaMovedica::atualizar(float t)
 	posicao.y += velocidade.y * t;
 	posicao.x += velocidade.x * t;
 
-	velocidade.y = 30.0f;
+	
 
 }
 
 void PlataformaMovedica::colidir(EntidadeColidivel* outro, std::string tipoEntidade)
 {
+
 }

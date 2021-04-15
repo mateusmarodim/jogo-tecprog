@@ -8,6 +8,7 @@
 #include "Tile.h"
 #include "Caixote.h"
 #include "PlataformaMovedica.h"
+#include "Armadilha.h"
 
 
 class Principal

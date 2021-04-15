@@ -7,6 +7,7 @@ Jogador::Jogador(Vetor2F pos, Vetor2F vel, Vetor2F tam):
 	//posicao = Vetor2F(200.0, 400.0);
     vida = 3;
     bool pular = false;
+    bool podepular = true;
     
     //colidindo = false;
 }
@@ -15,10 +16,10 @@ Jogador::~Jogador()
 {
 }
 
-void Jogador::desenhar(GerenciadorGrafico& gg)
+/*void Jogador::desenhar(GerenciadorGrafico& gg)
 {
 	gg.desenhar(caminho, posicao);
-}
+}*/
 
 
 void Jogador::atualizar(float t)
@@ -26,7 +27,6 @@ void Jogador::atualizar(float t)
 
     GerenciadorEventos* g = GerenciadorEventos::getInstance();
 
-    velocidade.y = 55;
     if (vida == 0)
     {
         posicao = Vetor2F(200.0f, 400.0f);
@@ -48,21 +48,17 @@ void Jogador::atualizar(float t)
     }
     
 
-    if (g->eventos() == 3)
+    if (g->eventos() == 3 && podepular)
     {
-        if (pular) 
-        {
-            velocidade.y = - 30000;
-            pular = false;
-        }    
-    }
-    std::cout << pular << endl;
+        podepular = false;
+        velocidade.y = -sqrt(2.0f * 981.0f * 100.0f );
 
+    }
     
+    velocidade.y += 900.0f * t;
+
     posicao.x += velocidade.x * t;
     posicao.y += velocidade.y * t;
-
-
 
    std::cout << posicao.x<<std::endl;
     
@@ -97,11 +93,13 @@ void Jogador::colidir(EntidadeColidivel* outro, std::string tipoEntidade)
 
     if (tipoEntidade == "tile")
     {
-        //std::cout << pular << endl;
-        pular = true;
+
         if (this->posicao.y < outro->getPosicao().y)
         {
+            pular = true;
+            podepular = true;
             posicao.y = posicao.y - .3f;
+            velocidade.y = 0.0f;
         }
         else
         {
@@ -115,10 +113,13 @@ void Jogador::colidir(EntidadeColidivel* outro, std::string tipoEntidade)
         if (this->posicao.y < outro->getPosicao().y)
         {
             posicao.y = posicao.y - .3f;
+            podepular = true;
+            velocidade.y = 0;
         }
         else
         {
             posicao.y = posicao.y + .3f;
+            pular = true;
         }
     }
 
@@ -126,13 +127,31 @@ void Jogador::colidir(EntidadeColidivel* outro, std::string tipoEntidade)
     {
         if (this->posicao.y < outro->getPosicao().y)
         {
-            posicao.y = posicao.y - .3f;
-            pular = true;
+            posicao.y = posicao.y -.5f;
+            velocidade.y = 0;
+            podepular = true;
         }
         else
         {
             posicao.y = posicao.y + .3f;
             pular = true;
         }
+    }
+
+    if (tipoEntidade == "armadilha")
+    {
+       // if (cooldown >= 2.0)
+       // {
+            if (this->posicao.y < outro->getPosicao().y)
+            {
+                posicao.x = posicao.x - 100.f;
+            }
+            else
+            {
+                posicao.x = posicao.x - 100.f;
+            }
+           // cooldownDano.restart();
+      //  }
+
     }
 }

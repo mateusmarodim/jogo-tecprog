@@ -7,6 +7,7 @@ class Jogador : public EntidadeColidivel
 private:
 	bool pular;
 	unsigned int vida;
+	bool podepular;
 	sf::Clock cooldownDano;
 
 	//bool colidindo;
@@ -15,7 +16,7 @@ public:
 	Jogador(Vetor2F pos = (0.0,0.0), Vetor2F vel = (0.0,0.0), Vetor2F tam = (0.0,0.0));
 	~Jogador();
 
-	void desenhar(GerenciadorGrafico& gg);
+	//void desenhar(GerenciadorGrafico& gg);
 	void atualizar(float t);
 	void colidir(EntidadeColidivel* outro, std::string tipoEntidade);
 	//controle

@@ -36,7 +36,7 @@ void ListaEntidade::iniciliazarEntidade(GerenciadorGrafico& g)
 	{
 		
 		pp->inicializar(g);
-		std::cout << "oi" << std::endl;
+		//std::cout << "oi" << std::endl;
 		pp = lp.irProximo();
 	}
 }

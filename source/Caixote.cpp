@@ -11,11 +11,6 @@ Caixote::~Caixote()
 
 }
 
-void Caixote::desenhar(GerenciadorGrafico& g)
-{
-    g.desenhar(caminho,posicao);
-}
-
 void Caixote::atualizar(float t)
 {
     if(colidindo)

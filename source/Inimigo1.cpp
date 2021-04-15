@@ -10,10 +10,10 @@ Inimigo1::~Inimigo1()
 {
 }
 
-void Inimigo1::desenhar(GerenciadorGrafico& g)
+/*void Inimigo1::desenhar(GerenciadorGrafico& g)
 {
 	g.desenhar(caminho, posicao);
-}
+}*/
 
 void Inimigo1::atualizar(float t)
 {
