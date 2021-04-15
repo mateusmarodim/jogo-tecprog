@@ -1,4 +1,4 @@
-#include "../headers/Inimigo1.h"
+#include "Inimigo1.h"
 #include <iostream>
 
 Inimigo1::Inimigo1(Vetor2F pos, Vetor2F vel, Vetor2F tam):
@@ -17,16 +17,15 @@ void Inimigo1::desenhar(GerenciadorGrafico& g)
 
 void Inimigo1::atualizar(float t)
 {
-	if (fmod(t,100000000))
-	{
-		//std::cout << "salve" << endl;
-	}
 	posicao += velocidade * t;
 }
 
 void Inimigo1::colidir(EntidadeColidivel* outro, std::string tipoEntidade)
 {
-	std::cout << "Toma essa haha!" << std::endl;
+	//std::cout << "Toma essa haha!" << std::endl;
 	//outro->setVelocidade(Vetor2F(-0.2,0.0));
-	
+	if (tipoEntidade == "jogador")
+	{
+		
+	}
 }

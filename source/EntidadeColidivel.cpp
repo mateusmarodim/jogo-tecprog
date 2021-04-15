@@ -1,4 +1,4 @@
-#include "../headers/EntidadeColidivel.h"
+#include "EntidadeColidivel.h"
 #include <iostream>
 
 EntidadeColidivel::EntidadeColidivel(Vetor2F pos, Vetor2F vel, Vetor2F tam, const char* caminhoText):
@@ -14,19 +14,13 @@ void EntidadeColidivel::inicializar(GerenciadorGrafico& g)
 {
 	g.carregarTextura(caminho);
 	tamanho = g.getTamanho(caminho);
-	
 }
 
 void EntidadeColidivel::desenhar(GerenciadorGrafico& g)
 {
 	g.desenhar(caminho, posicao);
 }
-/*
-void EntidadeColidivel::setVelocidade(Vetor2F vel)
-{
-	velocidade = vel;
-}
-*/
+
 const Vetor2F EntidadeColidivel::getPosicao()const
 {
 	return posicao;
@@ -35,4 +29,9 @@ const Vetor2F EntidadeColidivel::getPosicao()const
 const Vetor2F EntidadeColidivel::getTamanho()const
 {
 	return tamanho;
+}
+
+const Vetor2F EntidadeColidivel::getVelocidade() const
+{
+	return velocidade;
 }

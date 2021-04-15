@@ -18,7 +18,6 @@ public:
 	void iniciliazarEntidade(GerenciadorGrafico& g);
 	void desenharEntidade(GerenciadorGrafico& g);
 	void atualizar(float t);
-	//void atualizarE(GerenciadorEventos& ge);
 
 	Entidade* voltarInicio();
 	Entidade* irProx();

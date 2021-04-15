@@ -1,4 +1,4 @@
-#include "../headers/ListaEntidade.h"
+#include "ListaEntidade.h"
 #include <iostream>
 
 ListaEntidade::ListaEntidade()
@@ -34,8 +34,9 @@ void ListaEntidade::iniciliazarEntidade(GerenciadorGrafico& g)
 	Entidade* pp = lp.voltarInicio();
 	while (pp != NULL)
 	{
-		std::cout << "oi" << std::endl;
+		
 		pp->inicializar(g);
+		std::cout << "oi" << std::endl;
 		pp = lp.irProximo();
 	}
 }
@@ -64,17 +65,6 @@ void ListaEntidade::atualizar(float t)
 	}
 }
 
-
-/*void ListaEntidade::atualizarE(GerenciadorEventos& ge)
-{
-	Entidade* pp = lp.voltarInicio();
-
-	while (pp != nullptr)
-	{
-		pp->atualizar(ge);
-		pp = lp.irProximo();
-	}
-}*/
 
 Entidade* ListaEntidade::voltarInicio()
 {

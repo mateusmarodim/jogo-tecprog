@@ -5,6 +5,9 @@
 #include "GerenciadorColisoes.h"
 #include "Jogador.h"
 #include "Inimigo1.h"
+#include "Tile.h"
+#include "Caixote.h"
+#include "PlataformaMovedica.h"
 
 
 class Principal

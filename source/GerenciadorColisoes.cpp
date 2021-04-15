@@ -1,4 +1,4 @@
-#include "../headers/GerenciadorColisoes.h"
+#include "GerenciadorColisoes.h"
 #include <iostream>
 #include <stdlib.h>
 
@@ -37,7 +37,7 @@ void GerenciadorColisoes::verificaColisoes()
             {
                 if(estaoColidindo(itr->second, itrOutro->second))
                 {
-                    //system("clear");
+                    //system("cls");
                     itr->second->colidir(itrOutro->second, itrOutro->first);
                     itrOutro->second->colidir(itr->second,itr->first);
                 }
@@ -46,7 +46,8 @@ void GerenciadorColisoes::verificaColisoes()
         }
         itr++;
         itrOutro = itr;
-        itrOutro++;
+        if(itrOutro!=colidiveis.end())
+            itrOutro++;
     }
     //std::cout <<"vamos com calma ae"<<std::endl;
 }   
@@ -78,7 +79,7 @@ bool GerenciadorColisoes::estaoColidindo(EntidadeColidivel* este, EntidadeColidi
     {
         return true;
     }else{
-        //system("clear");
+       // system("cls");
         return false;
     }
 

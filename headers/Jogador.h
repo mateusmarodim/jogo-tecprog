@@ -1,6 +1,6 @@
 #pragma once
 #include "EntidadeColidivel.h"
-#include "Singleton.h"
+#include <math.h>
 
 class Jogador : public EntidadeColidivel
 {

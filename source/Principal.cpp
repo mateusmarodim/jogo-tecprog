@@ -1,4 +1,4 @@
-#include "../headers/Principal.h"
+#include "Principal.h"
 #include <iostream>
 //#include "Vetor2D.h"
 //Vetor2F(220.0, 220.0), Vetor2F(5, 5), "Slime.png"
@@ -7,17 +7,24 @@ Principal::Principal()
 	/*listaboneco.inserir(new Entidade(Vetor2F(220.0, 220.0), Vetor2F(5, 50), "Slime.png"));
 	listaboneco.inserir(new Entidade(Vetor2F(200.0, 220.0), Vetor2F(100, 100), "sorvetao.jpg"));
 	listaboneco.inserir(new Entidade(Vetor2F(500.0, 520.0), Vetor2F(5, 5), "possivel inimigo.png"));*/
-	listaboneco.inserir(new Jogador(Vetor2F(600.0, 400.0)));
+	listaboneco.inserir(new Jogador(Vetor2F(200.0, 350.0)));
 	listaboneco.inserir(new Inimigo1(Vetor2F(400.0 , 400.0)));
-
-	//Jogador jogador(Vetor2F(200.0,400.0));
-	//jogador.inicializar(gerenciadorGrafico);
-
+	//listaboneco.inserir(new Tile(Vetor2F(300.0, 300.0)));
+	listaboneco.inserir(new Tile(Vetor2F(300.0, 439.0)));
+	listaboneco.inserir(new Caixote(Vetor2F(300, 400)));
+	listaboneco.inserir(new PlataformaMovedica(Vetor2F(-220.0, 400.0)));
+	//listaboneco.inserir(new PlataformaMovedica(Vetor2F(250.0, 400.0)));
 
 	listaboneco.iniciliazarEntidade(gerenciadorGrafico);
 
 	gerenciadorColisoes.inserirColidivel("jogador", static_cast<EntidadeColidivel*>(listaboneco.voltarInicio()));
 	gerenciadorColisoes.inserirColidivel("inimigo", static_cast<EntidadeColidivel*>(listaboneco.irProx()));
+	gerenciadorColisoes.inserirColidivel("tile", static_cast<EntidadeColidivel*>(listaboneco.irProx()));
+	//gerenciadorColisoes.inserirColidivel("tile", static_cast<EntidadeColidivel*>(listaboneco.irProx()));
+	gerenciadorColisoes.inserirColidivel("caixote", static_cast<EntidadeColidivel*>(listaboneco.irProx()));
+	gerenciadorColisoes.inserirColidivel("plataformamovedica", static_cast<EntidadeColidivel*>(listaboneco.irProx()));
+
+
 }
 
 Principal::~Principal()
