@@ -1,4 +1,4 @@
-#include "ListaEntidade.h"
+#include "../headers/ListaEntidade.h"
 #include <iostream>
 
 ListaEntidade::ListaEntidade()

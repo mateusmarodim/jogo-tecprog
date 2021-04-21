@@ -9,7 +9,8 @@
 #include "Caixote.h"
 #include "PlataformaMovedica.h"
 #include "Armadilha.h"
-
+#include "Projetil.h"
+#include "Pistoleiro.h"
 
 class Principal
 {
@@ -25,5 +26,6 @@ public:
 	~Principal();
 
 	int executar();
+	void adicionaEntidade(EntidadeColidivel* entidade, string tipoEntidade);
 };
 

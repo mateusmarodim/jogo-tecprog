@@ -1,4 +1,4 @@
-#include "Jogador.h"
+#include "../headers/Jogador.h"
 #include <iostream>
 
 Jogador::Jogador(Vetor2F pos, Vetor2F vel, Vetor2F tam):
@@ -60,7 +60,7 @@ void Jogador::atualizar(float t)
     posicao.x += velocidade.x * t;
     posicao.y += velocidade.y * t;
 
-   std::cout << posicao.x<<std::endl;
+   //std::cout << posicao.x<<std::endl;
     
 }
 

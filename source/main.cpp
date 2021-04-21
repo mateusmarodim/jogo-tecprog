@@ -1,5 +1,5 @@
-#include "Principal.h"
-#include "Vetor2D.h"
+#include "../headers/Principal.h"
+#include "../headers/Vetor2D.h"
 #include <iostream>
 
 int main()

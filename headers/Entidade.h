@@ -17,6 +17,6 @@ public:
 	virtual void inicializar(GerenciadorGrafico& g);
 	virtual void atualizar(float t) = 0;
 	virtual void desenhar(GerenciadorGrafico& g);
-	virtual const Vetor2F getPosicao()const = 0;
+	virtual const Vetor2F getPosicao()const;
 };
 

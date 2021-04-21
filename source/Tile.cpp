@@ -1,4 +1,4 @@
-#include "Tile.h"
+#include "../headers/Tile.h"
 #include <iostream>
 
 Tile::Tile(Vetor2F pos, Vetor2F vel, Vetor2F tam):

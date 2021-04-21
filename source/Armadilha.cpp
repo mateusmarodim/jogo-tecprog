@@ -1,4 +1,4 @@
-#include "Armadilha.h"
+#include "../headers/Armadilha.h"
 
 Armadilha::Armadilha(Vetor2F pos, Vetor2F vel, Vetor2F tam):
 	Obstaculo(pos, vel, tam, "texture/pink.png")

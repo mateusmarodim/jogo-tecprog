@@ -1,4 +1,4 @@
-#include "Entidade.h"
+#include "../headers/Entidade.h"
 #include <iostream>
 
 Entidade::Entidade(Vetor2F pos, const char* caminhoText) :
@@ -16,8 +16,13 @@ void Entidade::inicializar(GerenciadorGrafico& g)
 	
 }
 
+
 void Entidade::desenhar(GerenciadorGrafico& g)
 {
 	g.desenhar(caminho, posicao);
 }
 
+const Vetor2F Entidade::getPosicao()const
+{
+	return posicao;
+}

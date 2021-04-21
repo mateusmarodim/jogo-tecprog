@@ -1,4 +1,4 @@
-#include "GerenciadorColisoes.h"
+#include "../headers/GerenciadorColisoes.h"
 #include <iostream>
 #include <stdlib.h>
 
