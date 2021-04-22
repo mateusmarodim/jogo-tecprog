@@ -1,4 +1,4 @@
-#include "../headers/Jogador.h"
+#include "Jogador.h"
 #include <iostream>
 
 Jogador::Jogador(Vetor2F pos, Vetor2F vel, Vetor2F tam):

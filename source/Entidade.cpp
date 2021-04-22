@@ -1,4 +1,4 @@
-#include "../headers/Entidade.h"
+#include "Entidade.h"
 #include <iostream>
 
 Entidade::Entidade(Vetor2F pos, const char* caminhoText) :

@@ -1,4 +1,4 @@
-#include "../headers/Pistoleiro.h"
+#include "Pistoleiro.h"
 #include <iostream>
 
 Pistoleiro::Pistoleiro(Vetor2F pos, Vetor2F vel, Vetor2F tam):
@@ -12,11 +12,12 @@ Pistoleiro::~Pistoleiro()
 
 void Pistoleiro::atualizar(float t)
 {
-	float tempo = this->cooldownTiro.getElapsedTime().asSeconds();
+	float tempo = cooldownTiro.getElapsedTime().asSeconds();
+	atirar();
 	if (tempo >= 5.0) 
 	{
 		std::cout << "dentro if" << std::endl;
-		this->atirar();
+		
 
 		cooldownTiro.restart();
 	}
@@ -28,9 +29,9 @@ void Pistoleiro::colidir(EntidadeColidivel* outro, std::string tipoEntidade)
 }
 void Pistoleiro::atirar()
 {
-
-    Projetil* proj = new Projetil(Vetor2F(this->getPosicao().x/2,this->getPosicao().y/2),Vetor2F(10.0,0.0),Vetor2F(0.0,0.0));
+	/*Projetil* proj = nullptr;
+    proj = new Projetil(Vetor2F(getPosicao().x-20.0f,getPosicao().y-20.0f),Vetor2F(10.0,0.0),Vetor2F(0.0,0.0));
 	std::cout << "ta criado" << std::endl;
-	//fase->adicionaEntidade(proj, "tiro");
+	fase->adicionaEntidade(proj, "tiro");*/
 	
 }

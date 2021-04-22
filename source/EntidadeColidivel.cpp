@@ -1,4 +1,4 @@
-#include "../headers/EntidadeColidivel.h"
+#include "EntidadeColidivel.h"
 #include <iostream>
 
 EntidadeColidivel::EntidadeColidivel(Vetor2F pos, Vetor2F vel, Vetor2F tam, const char* caminhoText):

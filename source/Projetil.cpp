@@ -1,4 +1,4 @@
-#include "../headers/Projetil.h"
+#include "Projetil.h"
 #include <iostream>
 
 Projetil::Projetil(Vetor2F Pos, Vetor2F Vel, Vetor2F Tam):

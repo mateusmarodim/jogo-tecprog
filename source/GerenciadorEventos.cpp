@@ -1,4 +1,4 @@
-#include "../headers/GerenciadorEventos.h"
+#include "GerenciadorEventos.h"
 #include <iostream>
 
 GerenciadorEventos::GerenciadorEventos()

@@ -1,4 +1,4 @@
-#include "../headers/Inimigo1.h"
+#include "Inimigo1.h"
 #include <iostream>
 
 Inimigo1::Inimigo1(Vetor2F pos, Vetor2F vel, Vetor2F tam):
