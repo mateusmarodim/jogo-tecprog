@@ -1,31 +1,20 @@
 #pragma once
-#include "ListaEntidade.h"
-#include "GerenciadorEventos.h"
-#include "GerenciadorGrafico.h"
-#include "GerenciadorColisoes.h"
-#include "Jogador.h"
-#include "Inimigo1.h"
-#include "Tile.h"
-#include "Caixote.h"
-#include "PlataformaMovedica.h"
-#include "Armadilha.h"
-#include "Projetil.h"
-#include "Pistoleiro.h"
+#include "Fase.h"
+
+class Fase;
 
 class Principal
 {
-private:
+protected:
 	GerenciadorGrafico gerenciadorGrafico;
-	GerenciadorColisoes gerenciadorColisoes;
 	sf::Clock relogio;
-	ListaEntidade listaboneco;
-	Jogador jogador;
+	Fase teste;
 
 public:
 	Principal();
 	~Principal();
 
 	int executar();
-	void adicionaEntidade(EntidadeColidivel* entidade, string tipoEntidade);
+	//void adicionaEntidade(EntidadeColidivel* entidade, string tipoEntidade);
 };
 

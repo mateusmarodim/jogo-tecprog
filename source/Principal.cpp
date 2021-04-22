@@ -1,9 +1,9 @@
 #include "Principal.h"
 #include <iostream>
 //#include "Vetor2D.h"
-//Vetor2F(220.0, 220.0), Vetor2F(5, 5), "Slime.png"
+
 Principal::Principal():
-	teste(&relogio)
+	teste(&relogio,&gerenciadorGrafico)
 {
 	/*
 	/*listaboneco.inserir(new Entidade(Vetor2F(220.0, 220.0), Vetor2F(5, 50), "Slime.png"));
@@ -71,7 +71,7 @@ int Principal::executar()
 
 		gerenciadorGrafico.mostrar();*/
 
-		teste.atualizar();
+		teste.atualizar(t.asSeconds());
 	}
 	return 0;
 }

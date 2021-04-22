@@ -1,7 +1,7 @@
 #include "Fase.h"
 
-Fase::Fase(sf::Clock* rf):
-	relogiof(rf)
+Fase::Fase(sf::Clock* rf, GerenciadorGrafico* gg):
+	relogiof(rf), gerenciadorGrafico(gg)
 {
 	listaboneco.inserir(new Jogador(Vetor2F(-100.0, 350.0)));
 	listaboneco.inserir(new Inimigo1(Vetor2F(400.0, 400.0)));
@@ -11,7 +11,7 @@ Fase::Fase(sf::Clock* rf):
 	listaboneco.inserir(new PlataformaMovedica(Vetor2F(-240.0, 439.0)));
 	listaboneco.inserir(new Armadilha(Vetor2F(150, 422)));
 
-	listaboneco.iniciliazarEntidade(gerenciadorGrafico);
+	listaboneco.iniciliazarEntidade(*gerenciadorGrafico);
 
 	gerenciadorColisoes.inserirColidivel("jogador", static_cast<EntidadeColidivel*>(listaboneco.voltarInicio()));
 	gerenciadorColisoes.inserirColidivel("inimigo", static_cast<EntidadeColidivel*>(listaboneco.irProx()));
@@ -24,6 +24,10 @@ Fase::Fase(sf::Clock* rf):
 	
 }
 
+Fase::Fase()
+{
+}
+
 Fase::~Fase()
 {
 	listaboneco.excluir();
@@ -33,17 +37,18 @@ Fase::~Fase()
 {
 }*/
 
-void Fase::atualizar()
+void Fase::atualizar(float t)
 {
-	sf::Time t = relogiof->getElapsedTime();
+	//sf::Time t = relogiof->getElapsedTime();
+	//relogiof->restart();
 
-	gerenciadorGrafico.limpar();
-	gerenciadorGrafico.centralizar(listaboneco.voltarInicio()->getPosicao());
+	gerenciadorGrafico->limpar();
+	gerenciadorGrafico->centralizar(listaboneco.voltarInicio()->getPosicao());
 
-	listaboneco.atualizar(t.asSeconds());
+	listaboneco.atualizar(t);
 	
-	listaboneco.desenharEntidade(gerenciadorGrafico);
+	listaboneco.desenharEntidade(*gerenciadorGrafico);
 	gerenciadorColisoes.verificaColisoes();
 
-	gerenciadorGrafico.mostrar();
+	gerenciadorGrafico->mostrar();
 }
