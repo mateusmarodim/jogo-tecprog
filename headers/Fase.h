@@ -14,7 +14,7 @@ public:
 	Fase();
 	~Fase();
 
-	//void adicionaEntidade(EntidadeColidivel* entidade,std::string tipoEntidade);
+	void adicionaEntidade(EntidadeColidivel* entidade,std::string tipoEntidade);
 	void atualizar(float t);
 };
 

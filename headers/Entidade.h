@@ -19,4 +19,3 @@ public:
 	virtual void desenhar(GerenciadorGrafico& g);
 	virtual const Vetor2F getPosicao()const;
 };
-

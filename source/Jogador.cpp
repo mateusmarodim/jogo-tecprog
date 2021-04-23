@@ -2,7 +2,7 @@
 #include <iostream>
 
 Jogador::Jogador(Vetor2F pos, Vetor2F vel, Vetor2F tam):
-	EntidadeColidivel(pos,vel,tam,"texture/blue.png")
+	EntidadeColidivel(pos,vel,tam,"texture/Jogador.png")
 {
 	//posicao = Vetor2F(200.0, 400.0);
     vida = 3;
@@ -40,18 +40,18 @@ void Jogador::atualizar(float t)
 
     if (g->eventos() == 1)
     {
-        velocidade.x = -100.0f;
+        velocidade.x = -150.0f;
     }
     if (g->eventos() == 2)
     {
-        velocidade.x = 100.0f;
+        velocidade.x = 150.0f;
     }
     
 
     if (g->eventos() == 3 && podepular)
     {
         podepular = false;
-        velocidade.y = -sqrt(2.0f * 981.0f * 100.0f );
+        velocidade.y = -sqrt(2.0f * 981.0f * 150.0f );
 
     }
     
@@ -125,6 +125,7 @@ void Jogador::colidir(EntidadeColidivel* outro, std::string tipoEntidade)
 
     if (tipoEntidade == "caixote")
     {
+        velocidade.y = 0;
         if (this->posicao.y < outro->getPosicao().y)
         {
             posicao.y = posicao.y -.5f;

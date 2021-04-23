@@ -78,11 +78,6 @@ int Principal::executar()
 
 /*void Principal::adicionaEntidade(EntidadeColidivel* entidade, string tipoEntidade)
 {
-	
-	listaboneco.inserir(entidade);
-	entidade->inicializar(gerenciadorGrafico);
 
-	gerenciadorColisoes.inserirColidivel(tipoEntidade, entidade);
-	std::cout << "ta adicionado" << std::endl;
 	
 }*/

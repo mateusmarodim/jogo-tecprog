@@ -2,7 +2,7 @@
 #include <iostream>
 
 Tile::Tile(Vetor2F pos, Vetor2F vel, Vetor2F tam):
-	EntidadeColidivel(pos, vel, tam, "texture/purple.png")
+	EntidadeColidivel(pos, vel, tam, "texture/tile.jpeg")
 {
 	//tam = Vetor2F(1000.0, 1000.0);
 }

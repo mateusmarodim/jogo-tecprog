@@ -2,7 +2,7 @@
 #include <iostream>
 
 Projetil::Projetil(Vetor2F Pos, Vetor2F Vel, Vetor2F Tam):
-EntidadeColidivel(Pos, Vel, Tam, "texture/pink.png")
+EntidadeColidivel(Pos, Vel, Tam, "texture/projetil.png")
 {
 
 }
@@ -14,7 +14,7 @@ Projetil::~Projetil()
 
 void Projetil::atualizar(float t)
 {
-    velocidade.x += 10*t;
+    velocidade.x -= 30*t;
     posicao.x += velocidade.x * t;
 }
 

@@ -1,7 +1,7 @@
 #include "PlataformaMovedica.h"
 
 PlataformaMovedica::PlataformaMovedica(Vetor2F pos, Vetor2F vel, Vetor2F tam):
-	Obstaculo(pos, vel, tam, "texture/green.png")
+	Obstaculo(pos, vel, tam, "texture/movingplat.png")
 {
 }
 

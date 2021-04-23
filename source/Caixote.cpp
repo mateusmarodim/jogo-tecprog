@@ -1,7 +1,7 @@
 #include "Caixote.h"
 
 Caixote::Caixote(Vetor2F pos, Vetor2F vel , Vetor2F tam) :
-    Obstaculo(pos, vel, tam, "texture/yellow.png")
+    Obstaculo(pos, vel, tam, "texture/caixote.png")
 {
     colidindo = false;
 }
