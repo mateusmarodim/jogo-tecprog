@@ -11,6 +11,7 @@ public:
 
 	Vetor2D operator +(Vetor2D v);
 	void operator +=(Vetor2D v);
+	//void operator =(Vetor2D v);
 	Vetor2D operator -(Vetor2D v);
 	Vetor2D operator *(int i);
 	Vetor2D operator *(float f);

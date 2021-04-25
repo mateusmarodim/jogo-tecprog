@@ -9,6 +9,7 @@ class Pistoleiro : public Inimigo
 private:
     Fase* fase;
     sf::Clock cooldownTiro;
+	int posxInicial;
 public:
 	Pistoleiro(Fase* fs = nullptr, Vetor2F pos = (0.0, 0.0), Vetor2F vel = (0.0, 0.0), Vetor2F tam = (0.0,0.0));
 	~Pistoleiro();

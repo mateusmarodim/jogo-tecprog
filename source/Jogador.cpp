@@ -40,11 +40,11 @@ void Jogador::atualizar(float t)
 
     if (g->eventos() == 1)
     {
-        velocidade.x = -150.0f;
+        velocidade.x = -1000.0f;
     }
     if (g->eventos() == 2)
     {
-        velocidade.x = 150.0f;
+        velocidade.x = 1000.0f;
     }
     
 

@@ -1,4 +1,5 @@
 #include "PlataformaMovedica.h"
+#include <iostream>
 
 PlataformaMovedica::PlataformaMovedica(Vetor2F pos, Vetor2F vel, Vetor2F tam):
 	Obstaculo(pos, vel, tam, "texture/movingplat.png")
@@ -27,7 +28,7 @@ void PlataformaMovedica::atualizar(float t)
 	posicao.y += velocidade.y * t;
 	posicao.x += velocidade.x * t;
 
-	
+	//std::cout << posicao.y << endl;
 
 }
 

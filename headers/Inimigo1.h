@@ -3,6 +3,8 @@
 
 class Inimigo1 : public Inimigo
 {
+private:
+	float posxInicial;
 public:
 	Inimigo1(Vetor2F pos = (0.0, 0.0), Vetor2F vel = (0.0, 0.0), Vetor2F tam = (0.0,0.0));
 	~Inimigo1();

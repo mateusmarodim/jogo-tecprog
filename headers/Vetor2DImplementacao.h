@@ -1,5 +1,6 @@
 #pragma once
 #include <cmath>
+#include "Vetor2D.h"
 
 template <typename T>
 Vetor2D<T>::Vetor2D(T X, T Y):
@@ -26,6 +27,13 @@ void Vetor2D<T>::operator +=(Vetor2D<T> v)
 	x += v.x;
 	y += v.y;
 }
+
+/*template<typename T>
+inline void Vetor2D<T>::operator=(Vetor2D v)
+{
+	x = v.x;
+	y = v.y;
+}*/
 
 template <typename T>
 Vetor2D<T> Vetor2D<T>::operator -(Vetor2D<T> v)

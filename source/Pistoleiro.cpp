@@ -5,6 +5,7 @@ Pistoleiro::Pistoleiro(Fase* fs, Vetor2F pos, Vetor2F vel, Vetor2F tam):
 	Inimigo(pos, vel, tam, "texture/Pistoleirot.png")
 {
 	fase = fs;
+	posxInicial = pos.x;
 }
 
 Pistoleiro::~Pistoleiro()
@@ -15,7 +16,7 @@ void Pistoleiro::atualizar(float t)
 {
 	float tempo = cooldownTiro.getElapsedTime().asSeconds();
 
-	if (tempo >= 5.0) 
+	if (tempo >= 5.0)
 	{
 		atirar();
 		std::cout << "dentro if" << std::endl;
