@@ -36,6 +36,7 @@ public:
 
 	void inserir(LT info);
 	void excluir();
+	void remover(LT info);
 
 	LT voltarInicio();
 	LT irProximo();

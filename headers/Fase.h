@@ -28,5 +28,7 @@ public:
 	void incluirPlataformam();
 	void incluirArmadilha();
 	void incluirFixos();
+
+	void deletaProjetil(Projetil* pproj);
 };
 

@@ -3,7 +3,7 @@
 
 GerenciadorGrafico::GerenciadorGrafico():
 	janela{ new sf::RenderWindow(sf::VideoMode(1080, 600), "Jogo")},//arrumar com os vetores que foram criados dps 1080,600
-	camera(sf::Vector2f(400,300),sf::Vector2f(800,600))//800,600
+	camera(sf::Vector2f(400,300),sf::Vector2f(8000,6000))//800,600
 {
 	janela->setView(camera);
 }
@@ -27,12 +27,6 @@ void GerenciadorGrafico::limpar(int r, int g, int b)
 {
 	janela->clear(sf::Color(r, g, b));
 }
-
-/*void GerenciadorGrafico::limpar(const string caminho)
-{
-	janela->clear(caminho);
-}*/
-
 
 void GerenciadorGrafico::desenhar(string caminho, Vetor2F posicao)
 {

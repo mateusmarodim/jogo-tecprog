@@ -4,7 +4,7 @@
 Projetil::Projetil(Vetor2F Pos, Vetor2F Vel, Vetor2F Tam):
 EntidadeColidivel(Pos, Vel, Tam, "texture/projetil.png")
 {
-
+    //deletar = false;
 }
 
 Projetil::~Projetil()
@@ -22,6 +22,16 @@ void Projetil::colidir(EntidadeColidivel* outro, string tipoEntidade)
 {
     if (tipoEntidade == "jogador") 
     {
-        std::cout << "hasta la vista baby ;)" << std::endl;
+        //std::cout << "hasta la vista baby ;)" << std::endl;
     }
 }
+
+/*void Projetil::setDeletar()
+{
+ 
+}
+
+bool Projetil::getDeletar()
+{
+    return deletar;
+}*/

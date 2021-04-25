@@ -16,6 +16,11 @@ void ListaEntidade::inserir(Entidade* info)
 	lp.inserir(info);
 }
 
+void ListaEntidade::remover(Entidade* info)
+{
+	lp.remover(info);
+}
+
 void ListaEntidade::excluir()
 {
 	Entidade* pp = lp.voltarInicio();

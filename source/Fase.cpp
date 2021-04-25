@@ -10,10 +10,10 @@ Fase::Fase(sf::Clock* rf, GerenciadorGrafico* gg,string cb) :
 	listaboneco.iniciliazarEntidade(*gerenciadorGrafico);
 	gerenciadorColisoes.inserirColidivel("jogador", static_cast<EntidadeColidivel*>(listaboneco.voltarInicio()));
 
-	incluirJungleslime();
+	//incluirJungleslime();
 	incluirSpikedslime();
-	incluirBau();
-	incluirPlataformam();
+	//incluirBau();
+	//incluirPlataformam();
 	incluirFixos();
 	
 }
@@ -64,7 +64,7 @@ void Fase::desenharBackground()
 void Fase::incluirJungleslime()
 {
 	srand(time(NULL));
-	int i = 7;//rand() % 3 + 5;
+	int i = rand() % 3 + 5;
 	posicoes.push_back(Vetor2F(200.0,400.0));
 	posicoes.push_back(Vetor2F(1050,400.0));
 	posicoes.push_back(Vetor2F(1750.0,400.0));
@@ -88,13 +88,13 @@ void Fase::incluirJungleslime()
 		adicionaEntidade(new Inimigo1(Vetor2F(posicoes[i - j-1])), "inimigo");
 		posicoes.pop_back();
 	}
-
+	posicoes.clear();
 }
 
 void Fase::incluirSpikedslime()
 {
 	srand(time(NULL));
-	int i = 7;//rand() % 3 + 5;
+	int i = 1;//rand() % 3 + 5;
 	posicoes.push_back(Vetor2F(500.0, 400.0));
 	posicoes.push_back(Vetor2F(750, 400.0));
 	posicoes.push_back(Vetor2F(1300.0, 400.0));
@@ -117,12 +117,13 @@ void Fase::incluirSpikedslime()
 		adicionaEntidade(new Pistoleiro(this,Vetor2F(posicoes[i - j - 1])), "inimigo");
 		posicoes.pop_back();
 	}
+	posicoes.clear();
 }
 
 void Fase::incluirBau()
 {
 	srand(time(NULL));
-	int i = 7;//rand() % 3 + 5;
+	int i = rand() % 3 + 5;
 	posicoes.push_back(Vetor2F(0.0, 400.0));
 	posicoes.push_back(Vetor2F(400, 400.0));
 	posicoes.push_back(Vetor2F(1200.0, 400.0));
@@ -140,12 +141,13 @@ void Fase::incluirBau()
 		adicionaEntidade(new Caixote(Vetor2F(posicoes[i - j - 1])), "caixote");
 		posicoes.pop_back();
 	}
+	posicoes.clear();
 }
 
 void Fase::incluirPlataformam()
 {
 	srand(time(NULL));
-	int i = 7;//rand() % 3 + 5;
+	int i = rand() % 3 + 5;
 
 	posicoes.push_back(Vetor2F(625.0, 309.0));
 	posicoes.push_back(Vetor2F(1525.0, 309.0));
@@ -165,6 +167,7 @@ void Fase::incluirPlataformam()
 		adicionaEntidade(new PlataformaMovedica(Vetor2F(posicoes[i - j - 1])), "plataformamovedica");
 		posicoes.pop_back();
 	}
+	posicoes.clear();
 }
 
 void Fase::incluirArmadilha()
@@ -188,6 +191,7 @@ void Fase::incluirArmadilha()
 		adicionaEntidade(new Armadilha(Vetor2F(posicoes[i - j - 1])), "armadilha");
 		posicoes.pop_back();
 	}
+	posicoes.clear();
 }
 
 void Fase::incluirFixos()
@@ -215,4 +219,28 @@ void Fase::incluirFixos()
 		else
 			adicionaEntidade(new PlataformaMovedica(Vetor2F(posicoes[i - j -1])), "plataformamovedica");
 	}
+	posicoes.clear();
 }
+
+void Fase::deletaProjetil(Projetil* pproj)
+{
+	std::cout << "vou deletar um corno" << endl;
+	gerenciadorColisoes.removerColidivel(gerenciadorColisoes.encontrar("tiro"));
+	listaboneco.remover(pproj);
+	delete pproj;
+
+}
+
+/*ElementoLista<LT>* paux = nullptr;
+paux = pFim;
+
+while (paux != nullptr)
+{
+	//delete paux->getInfo();
+
+	pFim = pFim->getAnt();
+
+	delete paux;
+
+	paux = pFim;
+}*/

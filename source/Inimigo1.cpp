@@ -7,40 +7,35 @@ Inimigo1::Inimigo1(Vetor2F pos, Vetor2F vel, Vetor2F tam):
 	velocidade.y = 100.0f;
 	velocidade.x = 100.0f;
 	posxInicial = pos.x;
+	teste = false;
 }
 
 Inimigo1::~Inimigo1()
 {
 }
 
-/*void Inimigo1::desenhar(GerenciadorGrafico& g)
-{
-	g.desenhar(caminho, posicao);
-}*/
-
 void Inimigo1::atualizar(float t)
 {
 	
+	//velocidade.x = 100.0f;
+
 	if (posxInicial +100 >= posicao.x)
 	{
 		velocidade.x *= -1;
 	}
 	if (posxInicial -100 <= posicao.x)
 	{
-		velocidade.x *=-1;
+		velocidade.x *= -1;
 	}
-
-	posicao += velocidade * t;
+	posicao.x += velocidade.x *t;
+	posicao.y += velocidade.y * t;
 	//std::cout << posicao.x << endl;
 }
 
 void Inimigo1::colidir(EntidadeColidivel* outro, std::string tipoEntidade)
 {
-	//std::cout << "Toma essa haha!" << std::endl;
-	//outro->setVelocidade(Vetor2F(-0.2,0.0));
 	if (tipoEntidade == "tile")
 	{
 		velocidade.y = 0;
 	}
-	
 }

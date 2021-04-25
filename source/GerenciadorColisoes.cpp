@@ -8,12 +8,19 @@ GerenciadorColisoes::GerenciadorColisoes()
 
 GerenciadorColisoes::~GerenciadorColisoes()
 {
+   /* std::multimap<std::string, EntidadeColidivel*>::iterator itr;
+    itr = colidiveis.end();
+
+    while (itr != colidiveis.begin())
+    {
+        colidiveis.erase(itr);
+        itr--;
+    }*/
 }
 
 void GerenciadorColisoes::inserirColidivel(std::string tipoEntidade, EntidadeColidivel* ec)
 {
     colidiveis.emplace(tipoEntidade, ec);
-    //std::cout << "ENTROU CARALHO" << std::endl;
 }
 
 void GerenciadorColisoes::removerColidivel(std::multimap<std::string, EntidadeColidivel*>::iterator posicao)
@@ -52,7 +59,7 @@ void GerenciadorColisoes::verificaColisoes()
     //std::cout <<"vamos com calma ae"<<std::endl;
 }   
 
-bool GerenciadorColisoes::estaoColidindo(EntidadeColidivel* este, EntidadeColidivel* outro/*, float empurrar*/)
+bool GerenciadorColisoes::estaoColidindo(EntidadeColidivel* este, EntidadeColidivel* outro)
 {
    
     Vetor2F posicaoEste = este->getPosicao();
@@ -83,4 +90,18 @@ bool GerenciadorColisoes::estaoColidindo(EntidadeColidivel* este, EntidadeColidi
         return false;
     }
 
+}
+
+std::multimap <std::string, EntidadeColidivel*>::iterator GerenciadorColisoes::encontrar(std::string tipoEntidade)
+{
+    std::multimap<std::string, EntidadeColidivel*>::iterator itr, itrend;
+    itr = colidiveis.begin();
+    //itrend=colidiveis.end();
+
+   /* while (itr != colidiveis.find(tipoEntidade))
+    {
+        itr++;
+    }*/
+    itr = colidiveis.find(tipoEntidade);
+    return itr;
 }

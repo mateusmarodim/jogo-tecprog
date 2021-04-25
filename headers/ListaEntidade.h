@@ -14,6 +14,7 @@ public:
 
 	void inserir(Entidade* info);
 	void excluir();
+	void remover(Entidade* info);
 
 	void iniciliazarEntidade(GerenciadorGrafico& g);
 	void desenharEntidade(GerenciadorGrafico& g);
