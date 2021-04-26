@@ -10,12 +10,12 @@ Fase::Fase(sf::Clock* rf, GerenciadorGrafico* gg,string cb) :
 	listaboneco.iniciliazarEntidade(*gerenciadorGrafico);
 	gerenciadorColisoes.inserirColidivel("jogador", static_cast<EntidadeColidivel*>(listaboneco.voltarInicio()));
 
-	//incluirJungleslime();
+	incluirJungleslime();
 	incluirSpikedslime();
-	//incluirBau();
-	//incluirPlataformam();
+	incluirBau();
+	incluirPlataformam();
 	incluirFixos();
-	
+
 }
 
 Fase::Fase()
@@ -44,8 +44,9 @@ void Fase::atualizar(float t)
 	listaboneco.atualizar(t);
 	
 	listaboneco.desenharEntidade(*gerenciadorGrafico);
-	gerenciadorColisoes.verificaColisoes();
 
+	gerenciadorColisoes.verificaColisoes();
+	//gerenciadorColisoes.imprimir(); 
 	gerenciadorGrafico->mostrar();
 }
 
@@ -64,7 +65,7 @@ void Fase::desenharBackground()
 void Fase::incluirJungleslime()
 {
 	srand(time(NULL));
-	int i = rand() % 3 + 5;
+	int i = 1;//rand() % 3 + 5;
 	posicoes.push_back(Vetor2F(200.0,400.0));
 	posicoes.push_back(Vetor2F(1050,400.0));
 	posicoes.push_back(Vetor2F(1750.0,400.0));
@@ -73,9 +74,6 @@ void Fase::incluirJungleslime()
 	posicoes.push_back(Vetor2F(2520.0,600.0));
 	posicoes.push_back(Vetor2F(3660.0,400.0));
 
-
-
-	
 	//std::cout << i << endl;
 	for (int j = 0; j < i; j++)
 	{
@@ -94,7 +92,7 @@ void Fase::incluirJungleslime()
 void Fase::incluirSpikedslime()
 {
 	srand(time(NULL));
-	int i = 1;//rand() % 3 + 5;
+	int i = rand() % 3 + 5;
 	posicoes.push_back(Vetor2F(500.0, 400.0));
 	posicoes.push_back(Vetor2F(750, 400.0));
 	posicoes.push_back(Vetor2F(1300.0, 400.0));
@@ -224,23 +222,12 @@ void Fase::incluirFixos()
 
 void Fase::deletaProjetil(Projetil* pproj)
 {
-	std::cout << "vou deletar um corno" << endl;
-	gerenciadorColisoes.removerColidivel(gerenciadorColisoes.encontrar("tiro"));
-	listaboneco.remover(pproj);
-	delete pproj;
-
+	if (pproj)
+	{
+		std::cout << "vou deletar um corno" << endl;
+		gerenciadorColisoes.removerColidivel(gerenciadorColisoes.encontrar("bala"));
+		listaboneco.remover(pproj);
+		delete pproj;
+	}
 }
 
-/*ElementoLista<LT>* paux = nullptr;
-paux = pFim;
-
-while (paux != nullptr)
-{
-	//delete paux->getInfo();
-
-	pFim = pFim->getAnt();
-
-	delete paux;
-
-	paux = pFim;
-}*/

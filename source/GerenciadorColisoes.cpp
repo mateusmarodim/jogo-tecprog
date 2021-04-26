@@ -8,7 +8,7 @@ GerenciadorColisoes::GerenciadorColisoes()
 
 GerenciadorColisoes::~GerenciadorColisoes()
 {
-   /* std::multimap<std::string, EntidadeColidivel*>::iterator itr;
+    /*std::multimap<std::string, EntidadeColidivel*>::iterator itr;
     itr = colidiveis.end();
 
     while (itr != colidiveis.begin())
@@ -95,13 +95,25 @@ bool GerenciadorColisoes::estaoColidindo(EntidadeColidivel* este, EntidadeColidi
 std::multimap <std::string, EntidadeColidivel*>::iterator GerenciadorColisoes::encontrar(std::string tipoEntidade)
 {
     std::multimap<std::string, EntidadeColidivel*>::iterator itr, itrend;
-    itr = colidiveis.begin();
+    itr = colidiveis.find(tipoEntidade);
     //itrend=colidiveis.end();
 
    /* while (itr != colidiveis.find(tipoEntidade))
     {
         itr++;
     }*/
-    itr = colidiveis.find(tipoEntidade);
     return itr;
+}
+
+void GerenciadorColisoes::imprimir()
+{
+    std::multimap<std::string, EntidadeColidivel*>::iterator itr;
+    itr = colidiveis.begin();
+
+    for (itr; itr != colidiveis.end(); itr++)
+    {
+        cout << itr->first
+            << '\t' << itr->second << endl;
+    }
+    std:: cout << endl;
 }

@@ -3,7 +3,7 @@
 
 GerenciadorGrafico::GerenciadorGrafico():
 	janela{ new sf::RenderWindow(sf::VideoMode(1080, 600), "Jogo")},//arrumar com os vetores que foram criados dps 1080,600
-	camera(sf::Vector2f(400,300),sf::Vector2f(8000,6000))//800,600
+	camera(sf::Vector2f(400,300),sf::Vector2f(800,600))//800,600
 {
 	janela->setView(camera);
 }

@@ -20,20 +20,21 @@ void Pistoleiro::atualizar(float t)
 
 	if (proj)
 	{
-		//if (abs(proj->getPosicao().x - getPosicao().x) >= 100)
-		//{
-			std::cout << "oi rs" << endl;
+		if (abs(proj->getPosicao().x - getPosicao().x) >= 100)
+		{
+			//std::cout << "oi rs" << endl;
 			
 			fase->deletaProjetil(proj);
+			proj = nullptr;
 			//delete proj;
 			//proj->setDeletar();
-		//}
+		}
 	}
 
 	if (tempo >= 5.0)
 	{
 		atirar();
-		std::cout << "atirei um corno" << endl;
+		//std::cout << "atirei um corno" << endl;
 		cooldownTiro.restart();
 
 	}
@@ -47,8 +48,8 @@ void Pistoleiro::colidir(EntidadeColidivel* outro, std::string tipoEntidade)
 void Pistoleiro::atirar()
 {
     proj = new Projetil(Vetor2F(getPosicao().x-20.0f,getPosicao().y),Vetor2F(10.0,0.0),Vetor2F(0.0,0.0));
-	std::cout << "ta criado" << std::endl;
-	fase->adicionaEntidade(proj, "tiro");
+	//std::cout << "ta criado" << std::endl;
+	fase->adicionaEntidade(proj, "bala");
 	
 	//if((proj->getPosicao().x-getPosicao().x))
 	

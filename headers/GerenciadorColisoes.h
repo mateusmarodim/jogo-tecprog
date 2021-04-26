@@ -18,5 +18,6 @@ public:
     void verificaColisoes();
     bool estaoColidindo(EntidadeColidivel* este, EntidadeColidivel* outro/*, float empurrar*/);
     std::multimap <std::string, EntidadeColidivel*>::iterator encontrar(std::string tipoEnt);
+    void imprimir();
 
 };

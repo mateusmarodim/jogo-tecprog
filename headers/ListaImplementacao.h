@@ -122,28 +122,28 @@ void Lista<LT>::remover(LT info)
 	ElementoLista<LT>* paux = nullptr;
 	paux = pFim;
 
-	//paux = info;
 	while (paux != nullptr && paux->getInfo()!=info)
 	{
 		paux = paux->getAnt();
 	}
+
 	if (paux->getAnt())
 	{
 		paux->getAnt()->setProx(paux->getProx());
 	}
-	//else
-	//{
-	//	paux->getAnt()->setProx(nullptr);
-	//}
+	else
+	{
+		pPrimeiro = paux->getProx();
+	}
 
 	if (paux->getProx())
 	{
 		paux->getProx()->setAnt(paux->getAnt());
 	}
-	//else
-	//{
-	//	paux->getProx()->setAnt(nullptr);
-	//}
+	else
+	{
+		pFim = paux->getAnt();
+	}
 	delete paux;
 	
 }

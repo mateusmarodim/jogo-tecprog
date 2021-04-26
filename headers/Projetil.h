@@ -13,6 +13,4 @@ public:
     
    // void setDeletar();
    // bool getDeletar();
-
-    
 };
