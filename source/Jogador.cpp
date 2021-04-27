@@ -64,7 +64,7 @@ void Jogador::atualizar(float t)
     posicao.x += velocidade.x * t;
     posicao.y += velocidade.y * t;
 
-    std::cout << posicao.x<<std::endl;
+   // std::cout << posicao.x<<std::endl;
     
 }
 
@@ -222,15 +222,43 @@ void Jogador::colidir(EntidadeColidivel* outro, std::string tipoEntidade)
         {
             if (distancia.y > 0)
             {
+                //podepular = true;
                 posicao.y += -1 * intersectaY;
             }
             else
             {
+                podepular = true;
                 posicao.y += 1 * intersectaY;
             }
-            podepular = true;
+            
             velocidade.y = 0.0f;
         }
 
+    }
+
+    if (tipoEntidade == "king")
+    {
+        if (intersectaX > intersectaY)
+        {
+            if (distancia.x > 0)
+            {
+                posicao.x += -1 * intersectaX;
+            }
+            else
+            {
+                posicao.x += 1 * intersectaX;
+            }
+        }
+        //else
+        //{
+        //    if (distancia.y > 0)
+        //    {
+        //        posicao.y += -1 * intersectaY;
+        //    }
+        //    else
+        //    {
+        //        posicao.y += 1 * intersectaY;
+        //    }
+        //}
     }
 }

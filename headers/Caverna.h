@@ -18,6 +18,6 @@ public:
 	void incluirBau();
 	void incluirFixos();
 
-
+	bool test();
 };
 

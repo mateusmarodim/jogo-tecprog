@@ -9,6 +9,7 @@ Caverna::Caverna(sf::Clock* rf, GerenciadorGrafico* gg, string cb) :
 	listaboneco.inserir(new Jogador(Vetor2F(-100.0, 350.0)));
 	listaboneco.iniciliazarEntidade(*gerenciadorGrafico);
 	gerenciadorColisoes.inserirColidivel("jogador", static_cast<EntidadeColidivel*>(listaboneco.voltarInicio()));
+	
 
 	incluir();
 
@@ -43,15 +44,15 @@ void Caverna::incluirJungleslime()
 {
 	srand(time(NULL));
 	//int i = 1;//rand() % 3 + 5;
-	posicoes.push_back(Vetor2F(400.0, 390.0));
-	posicoes.push_back(Vetor2F(1100.0, 790.0));
-	posicoes.push_back(Vetor2F(1400.0, 790.0));
-	posicoes.push_back(Vetor2F(1670.0, 790.0));
-	posicoes.push_back(Vetor2F(2250.0, 1190.0));
-	posicoes.push_back(Vetor2F(2650.0, 1190.0));
-	posicoes.push_back(Vetor2F(3990.0, 1740.0));
-	posicoes.push_back(Vetor2F(4365.0, 1740.0));
-	posicoes.push_back(Vetor2F(5410.0, 1740.0));
+	posicoes.push_back(Vetor2F(400.0, 385.0));
+	posicoes.push_back(Vetor2F(1100.0, 785.0));
+	posicoes.push_back(Vetor2F(1400.0, 785.0));
+	posicoes.push_back(Vetor2F(1670.0, 785.0));
+	posicoes.push_back(Vetor2F(2250.0, 1185.0));
+	posicoes.push_back(Vetor2F(2650.0, 1185.0));
+	posicoes.push_back(Vetor2F(3990.0, 1735.0));
+	posicoes.push_back(Vetor2F(4365.0, 1735.0));
+	posicoes.push_back(Vetor2F(5410.0, 1735.0));
 
 	int i = posicoes.size();
 	//std::cout << i << endl;
@@ -89,11 +90,11 @@ void Caverna::incluirSpikedslime()
 	{
 
 		int r = rand() % (i - j);
-		Vetor2F temp = posicoes[r];
-		posicoes[r] = posicoes[i - j - 1];
-		posicoes[i - j - 1] = temp;
-		adicionaEntidade(new Pistoleiro(this, Vetor2F(posicoes[i - j - 1])), "inimigo");
-		posicoes.pop_back();
+Vetor2F temp = posicoes[r];
+posicoes[r] = posicoes[i - j - 1];
+posicoes[i - j - 1] = temp;
+adicionaEntidade(new Pistoleiro(this, Vetor2F(posicoes[i - j - 1])), "inimigo");
+posicoes.pop_back();
 	}
 	posicoes.clear();
 }
@@ -133,14 +134,14 @@ void Caverna::incluirArmadilha()
 	srand(time(NULL));
 	//int i = rand() % 3 + 5;
 
-	posicoes.push_back(Vetor2F(200.0, 400.0));
-	posicoes.push_back(Vetor2F(830.0, 800.0));
-	posicoes.push_back(Vetor2F(1000.0, 800.0));
-	posicoes.push_back(Vetor2F(1500.0, 800.0));
-	posicoes.push_back(Vetor2F(2750.0, 1200.0));
-	posicoes.push_back(Vetor2F(3175.0, 1600.0));
-	posicoes.push_back(Vetor2F(3880.0, 1740.0));
-	posicoes.push_back(Vetor2F(5720.0, 1740.0));
+	posicoes.push_back(Vetor2F(200.0, 390.0));
+	posicoes.push_back(Vetor2F(830.0, 790.0));
+	posicoes.push_back(Vetor2F(1000.0, 790.0));
+	posicoes.push_back(Vetor2F(1500.0, 790.0));
+	posicoes.push_back(Vetor2F(2750.0, 1190.0));
+	posicoes.push_back(Vetor2F(3175.0, 1590.0));
+	posicoes.push_back(Vetor2F(3880.0, 1730.0));
+	posicoes.push_back(Vetor2F(5720.0, 1730.0));
 
 	int i = posicoes.size();
 
@@ -158,7 +159,7 @@ void Caverna::incluirArmadilha()
 
 void Caverna::incluirFixos()
 {
-	
+
 	posicoes.push_back(Vetor2F(4830, 1650));
 
 	posicoes.push_back(Vetor2F(300.0, 180.0));
@@ -171,8 +172,8 @@ void Caverna::incluirFixos()
 	posicoes.push_back(Vetor2F(3565, 1380));
 	posicoes.push_back(Vetor2F(4330, 1780));
 	posicoes.push_back(Vetor2F(5330, 1780));
-	
-	
+
+
 	int i = posicoes.size();
 
 	for (int j = 0; j < i; j++)
@@ -180,8 +181,18 @@ void Caverna::incluirFixos()
 		if (j < i - 1)
 			adicionaEntidade(new Tile(Vetor2F(posicoes[i - j - 1])), "tile");
 		else
-			adicionaEntidade(new King(Vetor2F(posicoes[i - j - 1])), "king");
+			adicionaEntidade(new King(this, static_cast<Jogador*>(listaboneco.voltarInicio()), Vetor2F(posicoes[i - j - 1])), "king");
 
 	}
 	posicoes.clear();
+}
+
+bool Caverna::test()
+{
+	if (listaboneco.voltarInicio()->getPosicao().x >= 5810)
+	{
+		return true;
+		//listaboneco.excluir();
+	}
+	
 }

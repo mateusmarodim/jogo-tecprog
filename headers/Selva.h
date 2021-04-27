@@ -15,5 +15,7 @@ public:
 	void incluirBau();
 	void incluirPlataformam();
 	void incluirFixos();
+	
+	bool test();
 };
 

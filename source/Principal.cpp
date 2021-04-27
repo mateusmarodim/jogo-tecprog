@@ -35,8 +35,17 @@ int Principal::executar()
 
 
 		//teste.atualizar(t.asSeconds());
-		//fase1.atualizar(t.asSeconds());
-		fase2.atualizar(t.asSeconds());
+		if(!fase1.test())
+			fase1.atualizar(t.asSeconds());
+
+		if (fase1.test())
+		{
+			fase2.atualizar(t.asSeconds());
+		}
+		if (fase2.test())
+		{
+			gerenciadorGrafico.getJanela()->close();
+		}
 	}
 	return 0;
 }

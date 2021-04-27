@@ -11,6 +11,8 @@ protected:
 	sf::Clock* relogiof;
 	std::vector<Vetor2F> posicoes;
 	const string caminhoBackground;
+
+	Jogador* pjogador;
 	
 
 public:

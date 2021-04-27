@@ -1,10 +1,12 @@
 #include "Selva.h"
+#include <iostream>
 
 Selva::Selva(sf::Clock* rf, GerenciadorGrafico* gg, string cb):
 	Fase(rf,gg,cb)
 {
 	carregarBackground();
 
+	
 	listaboneco.inserir(new Jogador(Vetor2F(-100.0, 350.0)));
 	listaboneco.iniciliazarEntidade(*gerenciadorGrafico);
 	gerenciadorColisoes.inserirColidivel("jogador", static_cast<EntidadeColidivel*>(listaboneco.voltarInicio()));
@@ -163,4 +165,14 @@ void Selva::incluirFixos()
 			adicionaEntidade(new PlataformaMovedica(Vetor2F(posicoes[i - j - 1])), "plataformamovedica");
 	}
 	posicoes.clear();
+}
+
+bool Selva::test()
+{
+	if (listaboneco.voltarInicio()->getPosicao().x >= 4300)
+	{
+		//std::cout << "fechar " << endl;
+		return true;
+		listaboneco.excluir();
+	}
 }
