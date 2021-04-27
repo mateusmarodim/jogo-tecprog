@@ -28,7 +28,7 @@ void GerenciadorGrafico::limpar(int r, int g, int b)
 	janela->clear(sf::Color(r, g, b));
 }
 
-void GerenciadorGrafico::desenhar(string caminho, Vetor2F posicao)
+void GerenciadorGrafico::desenhar(string caminho, Vetor2F posicao /*Vetor2F escala*/)
 {
 	if (texturas.count(caminho) == 0)
 	{
@@ -37,10 +37,10 @@ void GerenciadorGrafico::desenhar(string caminho, Vetor2F posicao)
 	}
 	text = texturas[caminho];
 
-	
 	sprite.setTexture(*text, true);
 	sprite.setOrigin(text->getSize().x*0.5,text->getSize().y*0.5);
 	sprite.setPosition(posicao.x, posicao.y);
+	//sprite.setScale(escala.x,escala.y);
 	janela->draw(sprite);
 
 }

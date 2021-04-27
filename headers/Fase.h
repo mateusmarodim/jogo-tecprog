@@ -16,19 +16,18 @@ protected:
 public:
 	Fase(sf::Clock* rf, GerenciadorGrafico* gg, string cb);
 	Fase();
-	~Fase();
+	virtual ~Fase();
 
-	void adicionaEntidade(EntidadeColidivel* entidade,std::string tipoEntidade);
-	void atualizar(float t);
-	void carregarBackground();
-	void desenharBackground();
-	void incluirJungleslime();
-	void incluirSpikedslime();
-	void incluirBau();
-	void incluirPlataformam();
-	void incluirArmadilha();
-	void incluirFixos();
+	virtual void adicionaEntidade(EntidadeColidivel* entidade,std::string tipoEntidade);
+	virtual void atualizar(float t);
+	virtual void carregarBackground();
+	virtual void desenharBackground();
 
-	void deletaProjetil(Projetil* pproj);
+	virtual void incluir() = 0;
+	virtual void incluirSpikedslime() = 0;
+	virtual void incluirBau() = 0;
+	virtual void incluirFixos() = 0;
+
+	virtual void deletaProjetil(Projetil* pproj);
 };
 

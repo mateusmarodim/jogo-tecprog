@@ -29,7 +29,7 @@ void Jogador::atualizar(float t)
 
     if (vida == 0)
     {
-        posicao = Vetor2F(200.0f, 400.0f);
+        posicao = Vetor2F(-150.0f, 350.0f);
         vida = 3;
     }
 
@@ -40,11 +40,11 @@ void Jogador::atualizar(float t)
 
     if (g->eventos() == 1)
     {
-        velocidade.x = -100.0f;
+        velocidade.x = -1500.0f;
     }
     if (g->eventos() == 2)
     {
-        velocidade.x = 100.0f;
+        velocidade.x = 1500.0f;
     }
     
 
@@ -55,12 +55,16 @@ void Jogador::atualizar(float t)
 
     }
     
+    if (posicao.y > 7000.0f)
+    {
+        posicao = Vetor2F(-150.0f, 350.0f);
+    }
     velocidade.y += 900.0f * t;
 
     posicao.x += velocidade.x * t;
     posicao.y += velocidade.y * t;
 
-   //std::cout << posicao.x<<std::endl;
+    std::cout << posicao.x<<std::endl;
     
 }
 
