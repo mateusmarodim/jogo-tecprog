@@ -4,7 +4,7 @@
 Fase::Fase(sf::Clock* rf, GerenciadorGrafico* gg,string cb) :
 	relogiof(rf), gerenciadorGrafico(gg), caminhoBackground(cb)
 {
-
+	//incluirP2();
 }
 
 Fase::Fase()
@@ -37,6 +37,7 @@ void Fase::atualizar(float t)
 	gerenciadorColisoes.verificaColisoes();
 	//gerenciadorColisoes.imprimir(); 
 	gerenciadorGrafico->mostrar();
+	pausar();
 }
 
 void Fase::carregarBackground()
@@ -60,6 +61,21 @@ void Fase::deletaProjetil(Projetil* pproj)
 		gerenciadorColisoes.removerColidivel(gerenciadorColisoes.encontrar("bala"));
 		listaboneco.remover(pproj);
 		delete pproj;
+	}
+}
+
+void Fase::pausar()
+{
+	//GerenciadorEventos* g = GerenciadorEventos::getInstance();
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::P))
+	{
+		std::cout << "pause" << endl;
+		//getchar();
+		while (!sf::Keyboard::isKeyPressed(sf::Keyboard::Key::M))
+		{
+
+		}
+		relogiof->restart();
 	}
 }
 

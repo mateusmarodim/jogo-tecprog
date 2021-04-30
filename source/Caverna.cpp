@@ -1,5 +1,5 @@
 #include "Caverna.h"
-
+#include <iostream>
 
 Caverna::Caverna(sf::Clock* rf, GerenciadorGrafico* gg, string cb) :
 	Fase(rf, gg, cb)
@@ -31,6 +31,7 @@ void Caverna::incluir()
 	incluirBau();
 	incluirArmadilha();
 	incluirFixos();
+	//incluirP2();
 }
 
 void Caverna::desenharBackground()
@@ -43,7 +44,7 @@ void Caverna::desenharBackground()
 void Caverna::incluirJungleslime()
 {
 	srand(time(NULL));
-	//int i = 1;//rand() % 3 + 5;
+	int i = rand() % 5 + 5;
 	posicoes.push_back(Vetor2F(400.0, 385.0));
 	posicoes.push_back(Vetor2F(1100.0, 785.0));
 	posicoes.push_back(Vetor2F(1400.0, 785.0));
@@ -54,7 +55,7 @@ void Caverna::incluirJungleslime()
 	posicoes.push_back(Vetor2F(4365.0, 1735.0));
 	posicoes.push_back(Vetor2F(5410.0, 1735.0));
 
-	int i = posicoes.size();
+	//int i = posicoes.size();
 	//std::cout << i << endl;
 	for (int j = 0; j < i; j++)
 	{
@@ -73,7 +74,7 @@ void Caverna::incluirJungleslime()
 void Caverna::incluirSpikedslime()
 {
 	srand(time(NULL));
-	//int i = rand() % 3 + 5;
+	int i = rand() % 5 + 5;
 	posicoes.push_back(Vetor2F(70.0, 400.0));
 	posicoes.push_back(Vetor2F(700, 400.0));
 	posicoes.push_back(Vetor2F(1950.0, 1200.0));
@@ -84,7 +85,7 @@ void Caverna::incluirSpikedslime()
 	posicoes.push_back(Vetor2F(4215.0, 1740.0));
 	posicoes.push_back(Vetor2F(5690.0, 1740.0));
 
-	int i = posicoes.size();
+	//int i = posicoes.size();
 
 	for (int j = 0; j < i; j++)
 	{
@@ -104,8 +105,8 @@ posicoes.pop_back();
 void Caverna::incluirBau()
 {
 	srand(time(NULL));
-	//int i = 9; rand() % 3 + 5;
-	posicoes.push_back(Vetor2F(-50.0, 400.0));
+	int i =rand() % 5 + 5;
+	posicoes.push_back(Vetor2F(-30.0, 400.0));
 	posicoes.push_back(Vetor2F(250, 400.0));
 	posicoes.push_back(Vetor2F(600, 400.0));
 	posicoes.push_back(Vetor2F(1250, 800.0));
@@ -115,7 +116,7 @@ void Caverna::incluirBau()
 	posicoes.push_back(Vetor2F(4140.0, 1740));
 	posicoes.push_back(Vetor2F(5600.0, 1740));
 
-	int i = posicoes.size();
+	//int i = posicoes.size();
 
 	for (int j = 0; j < i; j++)
 	{
@@ -132,7 +133,7 @@ void Caverna::incluirBau()
 void Caverna::incluirArmadilha()
 {
 	srand(time(NULL));
-	//int i = rand() % 3 + 5;
+	int i = rand() % 4 + 5;
 
 	posicoes.push_back(Vetor2F(200.0, 390.0));
 	posicoes.push_back(Vetor2F(830.0, 790.0));
@@ -143,7 +144,7 @@ void Caverna::incluirArmadilha()
 	posicoes.push_back(Vetor2F(3880.0, 1730.0));
 	posicoes.push_back(Vetor2F(5720.0, 1730.0));
 
-	int i = posicoes.size();
+	//int i = posicoes.size();
 
 	for (int j = 0; j < i; j++)
 	{

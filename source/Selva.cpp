@@ -36,7 +36,7 @@ void Selva::incluir()
 void Selva::incluirJungleslime()
 {
 	srand(time(NULL));
-	int i = 1;//rand() % 3 + 5;
+	int i = rand() % 3 + 5;
 	posicoes.push_back(Vetor2F(200.0, 390.0));
 	posicoes.push_back(Vetor2F(1050, 400.0));
 	posicoes.push_back(Vetor2F(1750.0, 400.0));

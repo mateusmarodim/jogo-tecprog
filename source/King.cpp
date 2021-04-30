@@ -33,10 +33,6 @@ void King::colidir(EntidadeColidivel* outro, std::string tipoEntidade)
     float intersectaX = abs(distancia.x) - distanciaCentros.x;
     float intersectaY = abs(distancia.y) - distanciaCentros.y;
 
-    if (tipoEntidade == "jogador")
-    {
-        std::cout << "oi rs" << endl;
-    }
     if (tipoEntidade == "tile")
     {
 
@@ -69,23 +65,6 @@ void King::colidir(EntidadeColidivel* outro, std::string tipoEntidade)
 
     }
 
-    if (tipoEntidade == "jogador")
-    {
-        if (intersectaY > intersectaX)
-        {
-            if (distancia.y > 0)
-            {
-                posicao.y += -1 * intersectaY;
-            }
-            else
-            {
-                posicao.y += 1 * intersectaY;
-            }
-            podePular = true;
-            velocidade.y = 0.0f;
-        }
-
-    }
 }
 
 void King::mover()

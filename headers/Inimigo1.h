@@ -6,6 +6,7 @@ class Inimigo1 : public Inimigo
 private:
 	int posxInicial;
 	bool teste;
+	float velo;
 public:
 	Inimigo1(Vetor2F pos = (0.0, 0.0), Vetor2F vel = (0.0, 0.0), Vetor2F tam = (0.0,0.0));
 	~Inimigo1();

@@ -5,9 +5,10 @@ Inimigo1::Inimigo1(Vetor2F pos, Vetor2F vel, Vetor2F tam):
 	Inimigo(pos, vel, tam, "texture/jungleslime.png")
 {
 	velocidade.y = 100.0f;
+	velo = 100.0f;
 	velocidade.x = 100.0f;
 	posxInicial = pos.x;
-	teste = false;
+	//teste = false;
 }
 
 Inimigo1::~Inimigo1()
@@ -17,15 +18,15 @@ Inimigo1::~Inimigo1()
 void Inimigo1::atualizar(float t)
 {
 	
-	//velocidade.x = 100.0f;
+	//velocidade.x = vel;
 
-	if (posxInicial +100.0 >= posicao.x)
+	if (posxInicial +100.0 <= posicao.x)
 	{
-		velocidade.x *= -1;
+		velocidade.x = -velo;
 	}
-	if (posxInicial -100.0 <= posicao.x)
+	if (posxInicial -100.0 >= posicao.x)
 	{
-		velocidade.x *= -1;
+		velocidade.x = velo;
 	}
 	posicao.x += velocidade.x *t;
 	posicao.y += velocidade.y * t;

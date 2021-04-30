@@ -29,7 +29,9 @@ public:
 	virtual void incluirSpikedslime() = 0;
 	virtual void incluirBau() = 0;
 	virtual void incluirFixos() = 0;
-
+	
 	virtual void deletaProjetil(Projetil* pproj);
+
+	virtual void pausar();
 };
 
