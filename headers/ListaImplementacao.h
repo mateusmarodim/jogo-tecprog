@@ -117,6 +117,38 @@ void Lista<LT>::excluir()
 }
 
 template<typename LT>
+void Lista<LT>::remover(LT info)
+{
+	ElementoLista<LT>* paux = nullptr;
+	paux = pFim;
+
+	while (paux != nullptr && paux->getInfo()!=info)
+	{
+		paux = paux->getAnt();
+	}
+
+	if (paux->getAnt())
+	{
+		paux->getAnt()->setProx(paux->getProx());
+	}
+	else
+	{
+		pPrimeiro = paux->getProx();
+	}
+
+	if (paux->getProx())
+	{
+		paux->getProx()->setAnt(paux->getAnt());
+	}
+	else
+	{
+		pFim = paux->getAnt();
+	}
+	delete paux;
+	
+}
+
+template<typename LT>
 LT Lista<LT>::voltarInicio()
 {
 	pAtual = pPrimeiro;

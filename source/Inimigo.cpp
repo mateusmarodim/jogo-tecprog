@@ -1,17 +1,12 @@
 #include "Inimigo.h"
 
-Inimigo::Inimigo(Vetor2F pos, Vetor2F vel, Vetor2F tam, const char* caminhoText):
-	EntidadeColidivel(pos,vel,tam,caminhoText)
+Inimigo::Inimigo(const Vetor2F Pos , const Vetor2F Vel, const Vetor2F Tam, const string CaminhoText):
+	Personagem(Pos,Vel,Tam,CaminhoText)
 {
 }
 
 Inimigo::~Inimigo()
 {
-}
-
-void Inimigo::desenhar(GerenciadorGrafico& g)
-{
-	g.desenhar(caminho, posicao);
 }
 
 

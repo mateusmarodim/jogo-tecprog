@@ -1,26 +1,28 @@
 #pragma once
 #include "Lista.h"
-#include "Entidade.h"
-#include "GerenciadorGrafico.h"
+#include "EntidadeColidivel.h"
+//#include "GerenciadorGrafico.h"
 
 class ListaEntidade
 {
 private:
-	Lista<Entidade*> lp;
+	Lista<EntidadeColidivel*> lp;
 
 public:
 	ListaEntidade();
 	~ListaEntidade();
 
-	void inserir(Entidade* info);
+	void inserir(EntidadeColidivel* info);
 	void excluir();
+	void remover(EntidadeColidivel* info);
 
 	void iniciliazarEntidade(GerenciadorGrafico& g);
 	void desenharEntidade(GerenciadorGrafico& g);
 	void atualizar(float t);
+	void reiniciaRelogio();
 
-	Entidade* voltarInicio();
-	Entidade* irProx();
+	EntidadeColidivel* voltarInicio();
+	EntidadeColidivel* irProx();
 
 };
 

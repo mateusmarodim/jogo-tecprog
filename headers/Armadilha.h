@@ -3,7 +3,7 @@
 class Armadilha : public Obstaculo
 {
 public:
-	Armadilha(Vetor2F pos = (0.0, 0.0), Vetor2F vel = (0.0, 0.0), Vetor2F tam = (0.0, 0.0));
+	Armadilha(const Vetor2F Pos = (0.0, 0.0), const  Vetor2F Vel = (0.0, 0.0),const  Vetor2F Tam = (0.0, 0.0));
 	~Armadilha();
 
 	void atualizar(float t);

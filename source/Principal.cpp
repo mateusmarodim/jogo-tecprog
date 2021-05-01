@@ -3,7 +3,9 @@
 //#include "Vetor2D.h"
 
 Principal::Principal():
-	teste(&relogio,&gerenciadorGrafico,"texture/back.png")
+	//teste(&relogio,&gerenciadorGrafico,"texture/back.png")
+	fase1(&relogio, &gerenciadorGrafico, "texture/back.png"),
+	fase2(&relogio, &gerenciadorGrafico, "texture/caverna1.png")
 {
 
 
@@ -31,8 +33,17 @@ int Principal::executar()
 				gerenciadorGrafico.getJanela()->close();
 		}
 
+		if(!fase1.test())
+			fase1.atualizar(t.asSeconds());
 
-		teste.atualizar(t.asSeconds());
+		if (fase1.test())
+		{
+			fase2.atualizar(t.asSeconds());
+		}
+		if (fase2.test())
+		{
+			gerenciadorGrafico.getJanela()->close();
+		}
 	}
 	return 0;
 }

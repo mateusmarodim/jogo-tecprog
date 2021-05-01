@@ -1,24 +1,22 @@
 #pragma once
-#include "EntidadeColidivel.h"
+#include"Personagem.h"
 #include <math.h>
 
-class Jogador : public EntidadeColidivel
+class Jogador : public Personagem
 {
-private:
-	bool pular;
+protected:
 	unsigned int vida;
 	bool podepular;
-	sf::Clock cooldownDano;
+	//sf::Clock cooldownDano;
 
 	//bool colidindo;
 	//GerenciadorEventos ge;
 public:
-	Jogador(Vetor2F pos = (0.0,0.0), Vetor2F vel = (0.0,0.0), Vetor2F tam = (0.0,0.0));
-	~Jogador();
+	Jogador(const Vetor2F Pos = (0.0,0.0),const Vetor2F Vel = (0.0,0.0),const Vetor2F Tam = (0.0,0.0), const string CaminhoText=nullptr);
+	virtual ~Jogador();
 
 	//void desenhar(GerenciadorGrafico& gg);
-	void atualizar(float t);
-	void colidir(EntidadeColidivel* outro, std::string tipoEntidade);
+	virtual void colidir(EntidadeColidivel* outro, std::string tipoEntidade);
 	//controle
 	//tratar
 };

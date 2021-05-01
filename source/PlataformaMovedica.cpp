@@ -1,34 +1,33 @@
 #include "PlataformaMovedica.h"
 #include <iostream>
 
-PlataformaMovedica::PlataformaMovedica(Vetor2F pos, Vetor2F vel, Vetor2F tam):
-	Obstaculo(pos, vel, tam, "texture/movingplat.png")
+PlataformaMovedica::PlataformaMovedica(const Vetor2F Pos,const Vetor2F Vel,const Vetor2F Tam):
+	Obstaculo(Pos, Vel, Tam, "texture/movingplat.png")
 {
+	velfix = 50.0;
+	posiniY = Pos.y;
+    velocidade.y = 50.0f;
 }
 
 PlataformaMovedica::~PlataformaMovedica()
 {
 }
 
-void PlataformaMovedica::desenhar(GerenciadorGrafico& g)
-{
-	g.desenhar(caminho, posicao);
-}
-
 void PlataformaMovedica::atualizar(float t)
 {
-	float tempo = teste.getElapsedTime().asSeconds();
-	velocidade.y -= 40.0f * t;
 
-	if (tempo >= 2.0)
-	{
-		velocidade.y *=-1;
-		teste.restart();
-	}
-	posicao.y += velocidade.y * t;
-	posicao.x += velocidade.x * t;
+    if (posicao.y >= posiniY)
+    {
+        velocidade.y = -velfix;
+    }
+    else if (posicao.y <= posiniY-85)
+    {
+        velocidade.y = velfix;
+    }
 
-	//std::cout << posicao.y << endl;
+    posicao.y += velocidade.y * t;
+    posicao.x += velocidade.x * t;
+
 
 }
 

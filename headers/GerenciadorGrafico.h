@@ -20,9 +20,8 @@ public:
 	~GerenciadorGrafico();
 
 	void mostrar();
-	void limpar(int r=0, int g=0, int b=0);
-	void limpar(const string caminho);
-	void desenhar(string caminho, Vetor2F posicao);
+	void limpar(int r = 0, int g = 0, int b = 0);
+	void desenhar(string caminho, Vetor2F posicao /*Vetor2F escala*/);
 	bool carregarTextura(string caminho);
 	void centralizar(Vetor2F centro);
 	sf::RenderWindow* getJanela();

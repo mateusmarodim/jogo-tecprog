@@ -1,20 +1,23 @@
 #pragma once
-#include "Fase.h"
+//#include "Fase.h"
+#include "Selva.h"
+#include "Caverna.h"
 
-class Fase;
+//class Fase;
 
 class Principal
 {
 protected:
 	GerenciadorGrafico gerenciadorGrafico;
 	sf::Clock relogio;
-	Fase teste;
+	//Fase teste;
+	Selva fase1;
+	Caverna fase2;
 
 public:
 	Principal();
 	~Principal();
 
 	int executar();
-	//void adicionaEntidade(EntidadeColidivel* entidade, string tipoEntidade);
 };
 

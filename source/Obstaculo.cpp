@@ -1,8 +1,8 @@
 #include "Obstaculo.h"
 #include <iostream>
 
-Obstaculo::Obstaculo(Vetor2F pos, Vetor2F vel, Vetor2F tam, const char* caminhoText) :
-    EntidadeColidivel(pos, vel, tam, caminhoText)
+Obstaculo::Obstaculo(const Vetor2F Pos,const  Vetor2F Vel,const  Vetor2F Tam,const string CaminhoText) :
+    EntidadeColidivel(Pos, Vel, Tam, CaminhoText)
 {
 }
 
@@ -10,7 +10,6 @@ Obstaculo::~Obstaculo()
 {
 }
 
-/*void Obstaculo::desenhar(GerenciadorGrafico& g)
+void Obstaculo::colidir(EntidadeColidivel* outro, string tipoEntidade)
 {
-    g.desenhar(caminho, posicao);
-}*/
+}

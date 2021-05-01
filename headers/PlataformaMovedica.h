@@ -4,13 +4,12 @@
 class PlataformaMovedica : public Obstaculo
 {
 private:
-    sf::Clock teste;
+    float posiniY;
+    float velfix;
 public:
-    PlataformaMovedica(Vetor2F pos = (0.0, 0.0), Vetor2F vel = (0.0, 0.0), Vetor2F tam = (0.0, 0.0));
+    PlataformaMovedica(const Vetor2F Pos = (0.0, 0.0),const  Vetor2F Vel = (0.0, 0.0),const  Vetor2F Tam = (0.0, 0.0));
     ~PlataformaMovedica();
 
-
-    void desenhar(GerenciadorGrafico& g);
     void atualizar(float t);
     void colidir(EntidadeColidivel* outro, std::string tipoEntidade);
 };
