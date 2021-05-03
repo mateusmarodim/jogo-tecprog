@@ -35,7 +35,7 @@ public:
 	virtual void incluirBau() = 0;
 	virtual void incluirFixos() = 0;
 	
-	virtual void deletaProjetil(Projetil* pproj);
+	virtual void deletaEspinho(Espinho* pesp);
 
 	virtual void setPodeAtirar(bool ppa);
 	virtual bool getPodeAtirar();
