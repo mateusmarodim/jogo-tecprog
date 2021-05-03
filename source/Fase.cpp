@@ -63,14 +63,13 @@ void Fase::desenharBackground()
 }
 
 
-void Fase::deletaProjetil(Projetil* pproj)
+void Fase::deletaEspinho(Espinho* pesp)
 {
-	if (pproj)
+	if (pesp)
 	{
-		//std::cout << "vou deletar um corno" << endl;
 		gerenciadorColisoes.removerColidivel(gerenciadorColisoes.encontrar("bala"));
-		listaboneco.remover(pproj);
-		delete pproj;
+		listaboneco.remover(pesp);
+		delete pesp;
 	}
 }
 
