@@ -10,5 +10,5 @@
 #include "Bau.h"
 #include "PlataformaMovedica.h"
 #include "Armadilha.h"
-#include "Projetil.h"
+#include "Espinho.h"
 #include "SlimeEspinhoso.h"
