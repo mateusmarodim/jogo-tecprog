@@ -4,7 +4,7 @@
 SlimeEspinhoso::SlimeEspinhoso(Fase* fs,const Vetor2F Pos, const  Vetor2F Vel, const  Vetor2F Tam):
 	Inimigo(Pos, Vel, Tam, "texture/Pistoleirot.png")
 {
-	proj = nullptr;
+	esp = nullptr;
 	fase = fs;
 	posxInicial = Pos.x;
 }
@@ -19,25 +19,19 @@ void SlimeEspinhoso::atualizar(float t)
 	// float tempo = cooldownTiro.getElapsedTime().asSeconds();
 	t = relogio.getElapsedTime().asSeconds();
 
-	if (proj)
+	if (esp)
 	{
-		if (abs(proj->getPosicao().x - getPosicao().x) >= 100)
-		{
-			//std::cout << "oi rs" << endl;
-			
-			fase->deletaProjetil(proj);
-			proj = nullptr;
-			//delete proj;
-			//proj->setDeletar();
+		if (abs(esp->getPosicao().x - getPosicao().x) >= 100)
+		{	
+			fase->deletaProjetil(esp);
+			esp = nullptr;
 		}
 	}
 
 	if (t >= 5.0 && !fase->getPodeAtirar())
 	{
 		atirar();
-		//std::cout << "atirei um corno" << endl;
 		relogio.restart();
-		//if(fase->pausar())
 	}
 
 }
@@ -48,11 +42,8 @@ void SlimeEspinhoso::colidir(EntidadeColidivel* outro, std::string tipoEntidade)
 }
 void SlimeEspinhoso::atirar()
 {
-    proj = new Projetil(Vetor2F(getPosicao().x-20.0f,getPosicao().y),Vetor2F(10.0,0.0),Vetor2F(0.0,0.0));
-	//std::cout << "ta criado" << std::endl;
-	fase->adicionaEntidade(proj, "bala");
-	
-	//if((proj->getPosicao().x-getPosicao().x))
+    esp = new Espinho(Vetor2F(getPosicao().x-20.0f,getPosicao().y),Vetor2F(10.0,0.0),Vetor2F(0.0,0.0));
+	fase->adicionaEntidade(esp, "bala");
 	
 }
 
