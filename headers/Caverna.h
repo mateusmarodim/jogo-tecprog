@@ -1,19 +1,24 @@
 #pragma once
 #include "Fase.h"
-#include "King.h"
+#include "Armadilha.h"
+#include "SlimeRei.h"
 
 class Caverna : public Fase
 {
+private:
+	Armadilha* pArmadilha;
+	SlimeRei* pSlimeR;
+
 public:
 	Caverna(sf::Clock* rf, GerenciadorGrafico* gg, string cb);
-	Caverna();
+	/*Caverna();*/
 	~Caverna();
 
 	void desenharBackground();
 
 	void incluir();
-	void incluirJungleslime();
-	void incluirSpikedslime();
+	void incluirSlimeDaSelva();
+	void incluirSlimeEspinhoso();
 	void incluirArmadilha();
 	void incluirBau();
 	void incluirFixos();

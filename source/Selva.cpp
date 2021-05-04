@@ -4,20 +4,13 @@
 Selva::Selva(sf::Clock* rf, GerenciadorGrafico* gg, string cb):
 	Fase(rf,gg,cb)
 {
-	carregarBackground();
-
-	
-	listaboneco.inserir(new Jogador(Vetor2F(-100.0, 350.0)));
-	listaboneco.iniciliazarEntidade(*gerenciadorGrafico);
-	gerenciadorColisoes.inserirColidivel("jogador", static_cast<EntidadeColidivel*>(listaboneco.voltarInicio()));
-
+	pPlataformaM = nullptr;
 	incluir();
-
 }
 
-Selva::Selva()
-{
-}
+//Selva::Selva()
+//{
+//}
 
 Selva::~Selva()
 {
@@ -26,14 +19,14 @@ Selva::~Selva()
 
 void Selva::incluir()
 {
-	incluirJungleslime();
-	incluirSpikedslime();
+	incluirSlimeDaSelva();
+	incluirSlimeEspinhoso();
 	incluirBau();
 	incluirPlataformam();
 	incluirFixos();
 }
 
-void Selva::incluirJungleslime()
+void Selva::incluirSlimeDaSelva()
 {
 	srand(time(NULL));
 	int i = rand() % 3 + 5;
@@ -48,19 +41,19 @@ void Selva::incluirJungleslime()
 	//std::cout << i << endl;
 	for (int j = 0; j < i; j++)
 	{
-
 		int r = rand() % (i - j);
-		//std::cout << r << endl;
 		Vetor2F temp = posicoes[r];
 		posicoes[r] = posicoes[i - j - 1];
 		posicoes[i - j - 1] = temp;
-		adicionaEntidade(new Inimigo1(Vetor2F(posicoes[i - j - 1])), "inimigo");
+
+		pSlimeDS = new SlimeDaSelva(Vetor2F(posicoes[i - j - 1]));
+		adicionaEntidade(pSlimeDS, "inimigo");
 		posicoes.pop_back();
 	}
 	posicoes.clear();
 }
 
-void Selva::incluirSpikedslime()
+void Selva::incluirSlimeEspinhoso()
 {
 	srand(time(NULL));
 	int i = rand() % 3 + 5;
@@ -78,12 +71,13 @@ void Selva::incluirSpikedslime()
 	//std::cout << i << endl;
 	for (int j = 0; j < i; j++)
 	{
-
 		int r = rand() % (i - j);
 		Vetor2F temp = posicoes[r];
 		posicoes[r] = posicoes[i - j - 1];
 		posicoes[i - j - 1] = temp;
-		adicionaEntidade(new Pistoleiro(this, Vetor2F(posicoes[i - j - 1])), "inimigo");
+
+		pSlimeE = new SlimeEspinhoso(this, Vetor2F(posicoes[i - j - 1]));
+		adicionaEntidade(pSlimeE, "inimigo");
 		posicoes.pop_back();
 	}
 	posicoes.clear();
@@ -107,7 +101,9 @@ void Selva::incluirBau()
 		Vetor2F temp = posicoes[r];
 		posicoes[r] = posicoes[i - j - 1];
 		posicoes[i - j - 1] = temp;
-		adicionaEntidade(new Caixote(Vetor2F(posicoes[i - j - 1])), "caixote");
+
+		pBau = new Bau(Vetor2F(posicoes[i - j - 1]));
+		adicionaEntidade(pBau, "caixote");
 		posicoes.pop_back();
 	}
 	posicoes.clear();
@@ -118,7 +114,7 @@ void Selva::incluirPlataformam()
 	srand(time(NULL));
 	int i = rand() % 3 + 5;
 
-	posicoes.push_back(Vetor2F(625.0, 309.0));
+	posicoes.push_back(Vetor2F(0.0, 309.0));
 	posicoes.push_back(Vetor2F(1525.0, 309.0));
 	posicoes.push_back(Vetor2F(2050.0, 539.0));
 	posicoes.push_back(Vetor2F(2450.0, 70.0));
@@ -133,7 +129,9 @@ void Selva::incluirPlataformam()
 		Vetor2F temp = posicoes[r];
 		posicoes[r] = posicoes[i - j - 1];
 		posicoes[i - j - 1] = temp;
-		adicionaEntidade(new PlataformaMovedica(Vetor2F(posicoes[i - j - 1])), "plataformamovedica");
+
+		pPlataformaM = new PlataformaMovedica(Vetor2F(posicoes[i - j - 1]));
+		adicionaEntidade(pPlataformaM, "plataformamovedica");
 		posicoes.pop_back();
 	}
 	posicoes.clear();
@@ -159,10 +157,17 @@ void Selva::incluirFixos()
 	{
 		if (j <= 4)
 		{
-			adicionaEntidade(new Tile(Vetor2F(posicoes[i - j - 1])), "tile");
+			pPiso = new Piso(Vetor2F(posicoes[i - j - 1]));
+
+			adicionaEntidade(pPiso, "tile");
 		}
+
 		else
-			adicionaEntidade(new PlataformaMovedica(Vetor2F(posicoes[i - j - 1])), "plataformamovedica");
+		{
+			pPlataformaM = new PlataformaMovedica(Vetor2F(posicoes[i - j - 1]));
+			adicionaEntidade(pPlataformaM, "plataformamovedica");
+		}
+		
 	}
 	posicoes.clear();
 }

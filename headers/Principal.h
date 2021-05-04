@@ -1,5 +1,4 @@
 #pragma once
-//#include "Fase.h"
 #include "Selva.h"
 #include "Caverna.h"
 
@@ -10,7 +9,6 @@ class Principal
 protected:
 	GerenciadorGrafico gerenciadorGrafico;
 	sf::Clock relogio;
-	//Fase teste;
 	Selva fase1;
 	Caverna fase2;
 

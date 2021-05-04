@@ -1,78 +1,23 @@
 #include "Jogador.h"
 #include <iostream>
 
-Jogador::Jogador(Vetor2F pos, Vetor2F vel, Vetor2F tam):
-	EntidadeColidivel(pos,vel,tam,"texture/Jogador.png")
+Jogador::Jogador(const Vetor2F Pos, const Vetor2F Vel, const Vetor2F Tam, const string CaminhoText ):
+	Personagem(Pos,Vel,Tam,CaminhoText)
 {
-	//posicao = Vetor2F(200.0, 400.0);
     vida = 3;
     bool pular = false;
     bool podepular = true;
-    
-    //colidindo = false;
 }
 
 Jogador::~Jogador()
 {
 }
 
-/*void Jogador::desenhar(GerenciadorGrafico& gg)
-{
-	gg.desenhar(caminho, posicao);
-}*/
-
-
-void Jogador::atualizar(float t)
-{
-
-    GerenciadorEventos* g = GerenciadorEventos::getInstance();
-
-    if (vida == 0)
-    {
-        posicao = Vetor2F(-150.0f, 350.0f);
-        vida = 3;
-    }
-
-    if(g->eventos() == 0 )
-    {
-        velocidade.x = (0.0f);
-    }
-
-    if (g->eventos() == 1)
-    {
-        velocidade.x = -150.0f;
-    }
-    if (g->eventos() == 2)
-    {
-        velocidade.x = 150.0f;
-    }
-    
-
-    if (g->eventos() == 3 && podepular)
-    {
-        podepular = false;
-        velocidade.y = -sqrt(2.0f * 981.0f * 150.0f );
-
-    }
-    
-    if (posicao.y > 7000.0f)
-    {
-        posicao = Vetor2F(-150.0f, 350.0f);
-    }
-    velocidade.y += 900.0f * t;
-
-    posicao.x += velocidade.x * t;
-    posicao.y += velocidade.y * t;
-
-   // std::cout << posicao.x<<std::endl;
-    
-}
-
 
 void Jogador::colidir(EntidadeColidivel* outro, std::string tipoEntidade)
 {
 
-    float cooldown = cooldownDano.getElapsedTime().asSeconds();
+    float cooldown = relogio.getElapsedTime().asSeconds();
 
     Vetor2F distancia = posicao - outro->getPosicao();
     Vetor2F distanciaCentros = (tamanho + outro->getTamanho()) * 0.5; 
@@ -83,8 +28,8 @@ void Jogador::colidir(EntidadeColidivel* outro, std::string tipoEntidade)
 	{
         if(cooldown >= 2.0)
         {
-            //vida--;
-            cooldownDano.restart();
+            vida--;
+            relogio.restart();
             std::cout << "Doeu >.< " << " " << vida << std::endl;
         }
 

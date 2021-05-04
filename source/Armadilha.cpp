@@ -1,7 +1,7 @@
 #include "Armadilha.h"
 
-Armadilha::Armadilha(Vetor2F pos, Vetor2F vel, Vetor2F tam):
-	Obstaculo(pos, vel, tam, "texture/trap.png")
+Armadilha::Armadilha(const Vetor2F Pos,const  Vetor2F Vel,const  Vetor2F Tam):
+	Obstaculo(Pos, Vel, Tam, "texture/trap.png")
 {
 	velocidade.y = 100.0f;
 }

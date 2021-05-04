@@ -4,8 +4,9 @@
 class Obstaculo : public EntidadeColidivel
 {
 public:
-    Obstaculo(Vetor2F pos = (0.0, 0.0), Vetor2F vel = (0.0, 0.0), Vetor2F tam = (0.0, 0.0), const char* caminhoText = nullptr);
-    ~Obstaculo();
+    Obstaculo(const Vetor2F Pos = (0.0, 0.0),const  Vetor2F Vel = (0.0, 0.0),const  Vetor2F Tam = (0.0, 0.0), const string CaminhoText = nullptr);
+    virtual  ~Obstaculo();
 
+    virtual void colidir(EntidadeColidivel* outro, string tipoEntidade);
 };
 

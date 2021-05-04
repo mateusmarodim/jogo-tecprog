@@ -6,7 +6,7 @@ GerenciadorEventos::GerenciadorEventos()
 
 }
 
-GerenciadorEventos* GerenciadorEventos::getInstance()
+GerenciadorEventos* GerenciadorEventos::getTeclado()
 {
 	if (g == nullptr)
 	{
@@ -20,23 +20,51 @@ GerenciadorEventos::~GerenciadorEventos()
 }
 
 
-GerenciadorEventos::Evento GerenciadorEventos::eventos()
+GerenciadorEventos::Teclas GerenciadorEventos::Teclado()
 {
 	
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
 	{
-		return andarEsquerda;
+		return andarEsquerdaP1;
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
 	{
-		return andarDireita;
+		return andarDireitaP1;
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space))
 	{
-		return pular;
+		return pularP1;
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left))
+	{
+		return andarEsquerdaP2;
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right))
+	{
+		return andarDireitaP2;
+	}	
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up))
+	{
+		return pularP2;
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::M))
+	{
+		return adicionarP2;
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::N))
+	{
+		return removerP2;
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::P))
+	{
+		return pausar;
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::R))
+	{
+		return resumir;
 	}
 	
-	return comeco;
+	//return comeco;
 }
 
 GerenciadorEventos* GerenciadorEventos::g = nullptr;

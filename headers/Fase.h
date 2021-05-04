@@ -1,5 +1,12 @@
 #pragma once
-#include "Bibs.h"
+#include "GerenciadorColisoes.h"
+#include "ListaEntidade.h"
+#include "SlimeSorridente.h"
+#include "SlimeAmigo.h"
+#include "SlimeEspinhoso.h"
+#include "SlimeDaSelva.h"
+#include "Bau.h"
+#include "Piso.h"
 #include <vector>
 
 class Fase
@@ -8,16 +15,25 @@ protected:
 	GerenciadorGrafico* gerenciadorGrafico;
 	GerenciadorColisoes gerenciadorColisoes;
 	ListaEntidade listaboneco;
-	sf::Clock* relogiof;
-	std::vector<Vetor2F> posicoes;
 	const string caminhoBackground;
 
-	Jogador* pjogador;
+	std::vector<Vetor2F> posicoes;
+	sf::Clock* relogiof;
 	
+	SlimeSorridente* pJogador1;
+	SlimeAmigo* pJogador2;
+
+	SlimeDaSelva* pSlimeDS;
+	SlimeEspinhoso* pSlimeE;
+	Bau* pBau;
+	Piso* pPiso;
+
+	bool podeAtirar;
+	bool podePausar;
 
 public:
 	Fase(sf::Clock* rf, GerenciadorGrafico* gg, string cb);
-	Fase();
+	//Fase();
 	virtual ~Fase();
 
 	virtual void adicionaEntidade(EntidadeColidivel* entidade,std::string tipoEntidade);
@@ -26,12 +42,19 @@ public:
 	virtual void desenharBackground();
 
 	virtual void incluir() = 0;
-	virtual void incluirSpikedslime() = 0;
+	virtual void incluirSlimeDaSelva() = 0;
+	virtual void incluirSlimeEspinhoso() = 0;
 	virtual void incluirBau() = 0;
 	virtual void incluirFixos() = 0;
 	
-	virtual void deletaProjetil(Projetil* pproj);
+	virtual void deletaProjetil(Espinho* pproj);
+
+	virtual void setPodeAtirar(bool ppa);
+	virtual bool getPodeAtirar();
+
 
 	virtual void pausar();
+
+	virtual void gerenciarP2();
 };
 

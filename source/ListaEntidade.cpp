@@ -11,19 +11,19 @@ ListaEntidade::~ListaEntidade()
 	excluir();
 }
 
-void ListaEntidade::inserir(Entidade* info)
+void ListaEntidade::inserir(EntidadeColidivel* info)
 {
 	lp.inserir(info);
 }
 
-void ListaEntidade::remover(Entidade* info)
+void ListaEntidade::remover(EntidadeColidivel* info)
 {
 	lp.remover(info);
 }
 
 void ListaEntidade::excluir()
 {
-	Entidade* pp = lp.voltarInicio();
+	EntidadeColidivel* pp = lp.voltarInicio();
 
 	while (pp != NULL)
 	{
@@ -36,7 +36,7 @@ void ListaEntidade::excluir()
 
 void ListaEntidade::iniciliazarEntidade(GerenciadorGrafico& g)
 {
-	Entidade* pp = lp.voltarInicio();
+	EntidadeColidivel* pp = lp.voltarInicio();
 	while (pp != NULL)
 	{
 		
@@ -48,7 +48,7 @@ void ListaEntidade::iniciliazarEntidade(GerenciadorGrafico& g)
 
 void ListaEntidade::desenharEntidade(GerenciadorGrafico& g)
 {
-	Entidade* pp = lp.voltarInicio();
+	EntidadeColidivel* pp = lp.voltarInicio();
 	
 	while (pp != NULL)
 	{
@@ -61,7 +61,7 @@ void ListaEntidade::desenharEntidade(GerenciadorGrafico& g)
 
 void ListaEntidade::atualizar(float t)
 {
-	Entidade* pp = lp.voltarInicio();
+	EntidadeColidivel* pp = lp.voltarInicio();
 
 	while (pp != nullptr)
 	{
@@ -70,13 +70,24 @@ void ListaEntidade::atualizar(float t)
 	}
 }
 
+void ListaEntidade::reiniciaRelogio()
+{
+	EntidadeColidivel* pp = lp.voltarInicio();
 
-Entidade* ListaEntidade::voltarInicio()
+	while (pp != NULL)
+	{
+		pp->reiniciaRelogio();
+		pp = lp.irProximo();
+	}
+}
+
+
+EntidadeColidivel* ListaEntidade::voltarInicio()
 {
 	return lp.voltarInicio();
 }
 
-Entidade* ListaEntidade::irProx()
+EntidadeColidivel* ListaEntidade::irProx()
 {
 	return lp.irProximo();
 }

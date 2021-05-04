@@ -11,14 +11,14 @@ private:
 	static GerenciadorEventos* g;
 public:
 
-	static GerenciadorEventos* getInstance();
+	static GerenciadorEventos* getTeclado();
 
-	enum Evento
+	enum Teclas
 	{
-		comeco,andarEsquerda,andarDireita,pular
+		comeco, andarEsquerdaP1, andarDireitaP1, pularP1,andarEsquerdaP2, andarDireitaP2, pularP2, adicionarP2, removerP2, pausar, resumir
 	};
 
 	~GerenciadorEventos();
 
-	Evento eventos();
+	Teclas Teclado();
 };

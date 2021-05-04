@@ -1,24 +1,24 @@
-#include "Projetil.h"
+#include "Espinho.h"
 #include <iostream>
 
-Projetil::Projetil(Vetor2F Pos, Vetor2F Vel, Vetor2F Tam):
+Espinho::Espinho(const Vetor2F Pos,const Vetor2F Vel,const Vetor2F Tam):
 EntidadeColidivel(Pos, Vel, Tam, "texture/projetil.png")
 {
     //deletar = false;
 }
 
-Projetil::~Projetil()
+Espinho::~Espinho()
 {
 
 }
 
-void Projetil::atualizar(float t)
+void Espinho::atualizar(float t)
 {
     velocidade.x -= 30*t;
     posicao.x += velocidade.x * t;
 }
 
-void Projetil::colidir(EntidadeColidivel* outro, string tipoEntidade)
+void Espinho::colidir(EntidadeColidivel* outro, string tipoEntidade)
 {
     if (tipoEntidade == "jogador") 
     {
