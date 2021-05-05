@@ -9,6 +9,9 @@
 #include "Piso.h"
 #include <vector>
 
+using namespace inimigo;
+using namespace jogador;
+
 class Fase
 {
 protected:

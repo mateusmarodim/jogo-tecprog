@@ -63,6 +63,10 @@ GerenciadorEventos::Teclas GerenciadorEventos::Teclado()
 	{
 		return resumir;
 	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::T))
+	{
+		return teleporte;
+	}
 	
 	//return comeco;
 }

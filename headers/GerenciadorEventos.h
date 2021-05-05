@@ -15,7 +15,7 @@ public:
 
 	enum Teclas
 	{
-		comeco, andarEsquerdaP1, andarDireitaP1, pularP1,andarEsquerdaP2, andarDireitaP2, pularP2, adicionarP2, removerP2, pausar, resumir
+		comeco, andarEsquerdaP1, andarDireitaP1, pularP1,andarEsquerdaP2, andarDireitaP2, pularP2, adicionarP2, removerP2, pausar, resumir,teleporte
 	};
 
 	~GerenciadorEventos();

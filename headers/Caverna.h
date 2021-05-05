@@ -3,6 +3,7 @@
 #include "Armadilha.h"
 #include "SlimeRei.h"
 
+
 class Caverna : public Fase
 {
 private:

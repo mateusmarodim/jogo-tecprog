@@ -17,4 +17,5 @@ public:
 	void Up();
 	void Down();
 };
+
 */
