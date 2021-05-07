@@ -3,7 +3,7 @@
 namespace jogador
 {
     SlimeSorridente::SlimeSorridente(const Vetor2F Pos, const Vetor2F Vel, const Vetor2F Tam) :
-        Jogador(Pos, Vel, Tam, "texture/Jogador.PNG")
+        Jogador(Pos, Vel, Tam, "texture/Jogador.png")
     {
     }
 

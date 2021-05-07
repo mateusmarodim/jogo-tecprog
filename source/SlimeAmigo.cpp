@@ -3,7 +3,7 @@
 namespace jogador
 {
     SlimeAmigo::SlimeAmigo(const Vetor2F Pos, const Vetor2F Vel, const Vetor2F Tam) :
-        Jogador(Pos, Vel, Tam, "texture/Jogador2.PNG")
+        Jogador(Pos, Vel, Tam, "texture/Jogador2.png")
     {
         teleporte = true;
     }

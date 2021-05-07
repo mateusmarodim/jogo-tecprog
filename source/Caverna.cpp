@@ -199,6 +199,8 @@ bool Caverna::test()
 	if (listaboneco.voltarInicio()->getPosicao().x >= 5810)
 	{
 		return true;
+
 	}
-	
+	else 
+		return false;
 }

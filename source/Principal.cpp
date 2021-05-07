@@ -4,8 +4,9 @@
 
 Principal::Principal():
 	//teste(&relogio,&gerenciadorGrafico,"texture/back.png")
-	fase1(&relogio, &gerenciadorGrafico, "texture/back.png"),
-	fase2(&relogio, &gerenciadorGrafico, "texture/caverna1.png")
+	//fase1(&relogio, &gerenciadorGrafico, "texture/back.png"),
+	//fase2(&relogio, &gerenciadorGrafico, "texture/caverna1.png")
+	fase(nullptr)
 {
 
 
@@ -19,6 +20,7 @@ Principal::~Principal()
 int Principal::executar()
 {
 	relogio.restart();
+	fase = new Selva(&relogio, &gerenciadorGrafico, "texture/back.png");
 
 	while (gerenciadorGrafico.getJanela()->isOpen())
 	{
@@ -33,16 +35,13 @@ int Principal::executar()
 				gerenciadorGrafico.getJanela()->close();
 		}
 
-		if(!fase1.test())
-			fase1.atualizar(t.asSeconds());
+		fase->atualizar(t.asSeconds());
 
-		if (fase1.test())
+		if(fase->test() == true)
 		{
-			fase2.atualizar(t.asSeconds());
-		}
-		if (fase2.test())
-		{
-			gerenciadorGrafico.getJanela()->close();
+			std::cout << "Entrei no teste da fase 1" << std::endl;
+			delete fase;
+			fase = new Caverna(&relogio, &gerenciadorGrafico, "texture/caverna1.png");
 		}
 	}
 	return 0;

@@ -9,8 +9,7 @@ class Principal
 protected:
 	GerenciadorGrafico gerenciadorGrafico;
 	sf::Clock relogio;
-	Selva fase1;
-	Caverna fase2;
+	Fase* fase;
 
 public:
 	Principal();

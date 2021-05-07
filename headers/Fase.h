@@ -49,13 +49,14 @@ public:
 	virtual void incluirSlimeEspinhoso() = 0;
 	virtual void incluirBau() = 0;
 	virtual void incluirFixos() = 0;
+	virtual bool test() = 0;
 	
 	virtual void deletaProjetil(Espinho* pproj);
 
 	virtual void setPodeAtirar(bool ppa);
 	virtual bool getPodeAtirar();
 
-
+	
 	virtual void pausar();
 
 	virtual void gerenciarP2();

@@ -28,6 +28,18 @@ void GerenciadorColisoes::removerColidivel(std::multimap<std::string, EntidadeCo
     colidiveis.erase(posicao);
 }
 
+void GerenciadorColisoes::esvaziarColidiveis()
+{
+    std::multimap<std::string, EntidadeColidivel*>::iterator itr;
+    itr = colidiveis.end();
+
+    while (itr != colidiveis.begin())
+    {
+        colidiveis.erase(itr);
+        itr--;
+    }
+}
+
 void GerenciadorColisoes::verificaColisoes()
 {
     std::multimap<std::string, EntidadeColidivel*>::iterator itr, itrOutro;

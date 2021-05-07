@@ -176,8 +176,10 @@ bool Selva::test()
 {
 	if (listaboneco.voltarInicio()->getPosicao().x >= 4300)
 	{
-		//std::cout << "fechar " << endl;
+		//gerenciadorColisoes.esvaziarColidiveis();
+		//listaboneco.excluir();
 		return true;
-		listaboneco.excluir();
 	}
+	else
+		return false;
 }
