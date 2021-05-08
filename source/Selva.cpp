@@ -4,6 +4,7 @@
 Selva::Selva(sf::Clock* rf, GerenciadorGrafico* gg, string cb):
 	Fase(rf,gg,cb)
 {
+	std::cout << "selva" << endl;
 	pPlataformaM = nullptr;
 	incluir();
 }
@@ -14,7 +15,7 @@ Selva::Selva(sf::Clock* rf, GerenciadorGrafico* gg, string cb):
 
 Selva::~Selva()
 {
-	listaboneco.excluir();
+	//listaboneco.excluir();
 }
 
 void Selva::incluir()
@@ -172,14 +173,12 @@ void Selva::incluirFixos()
 	posicoes.clear();
 }
 
-bool Selva::test()
+Selva::Situacao Selva::fimFase()
 {
-	if (listaboneco.voltarInicio()->getPosicao().x >= 4300)
+	if (pJogador1->getPosicao().x >= 4300)
 	{
-		//gerenciadorColisoes.esvaziarColidiveis();
-		//listaboneco.excluir();
-		return true;
+		return passarDeFase;
 	}
 	else
-		return false;
+		return continuar;
 }

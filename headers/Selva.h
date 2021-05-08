@@ -19,6 +19,6 @@ public:
 	void incluirPlataformam();
 	void incluirFixos();
 	
-	bool test();
+	Situacao  fimFase();
 };
 

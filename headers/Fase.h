@@ -36,8 +36,12 @@ protected:
 
 public:
 	Fase(sf::Clock* rf, GerenciadorGrafico* gg, string cb);
-	//Fase();
 	virtual ~Fase();
+
+	enum Situacao
+	{
+		passarDeFase, terminarJogo, continuar
+	};
 
 	virtual void adicionaEntidade(EntidadeColidivel* entidade,std::string tipoEntidade);
 	virtual void atualizar(float t);
@@ -49,7 +53,7 @@ public:
 	virtual void incluirSlimeEspinhoso() = 0;
 	virtual void incluirBau() = 0;
 	virtual void incluirFixos() = 0;
-	virtual bool test() = 0;
+	virtual Situacao fimFase() = 0;
 	
 	virtual void deletaProjetil(Espinho* pproj);
 
@@ -58,7 +62,7 @@ public:
 
 	
 	virtual void pausar();
-
 	virtual void gerenciarP2();
+
 };
 

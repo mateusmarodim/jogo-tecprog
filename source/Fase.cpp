@@ -28,7 +28,7 @@ Fase::Fase(sf::Clock* rf, GerenciadorGrafico* gg,string cb) :
 
 Fase::~Fase()
 {
-	listaboneco.excluir();
+	//listaboneco.excluir();
 }
 
 void Fase::adicionaEntidade(EntidadeColidivel* entidade, string tipoEntidade)
@@ -39,20 +39,20 @@ void Fase::adicionaEntidade(EntidadeColidivel* entidade, string tipoEntidade)
 	gerenciadorColisoes.inserirColidivel(tipoEntidade, entidade);
 }
 
+
 void Fase::atualizar(float t)
 {
-	//GerenciadorEventos* g = GerenciadorEventos::getTeclado();
 	if (!podePausar)
 	{
 		t = 0;
 	}
 	gerenciadorGrafico->limpar();
 	desenharBackground();
-	gerenciadorGrafico->centralizar(listaboneco.voltarInicio()->getPosicao());
+	listaboneco.desenharEntidade(*gerenciadorGrafico);
 	listaboneco.atualizar(t);
 	gerenciadorColisoes.verificaColisoes();
 	gerenciarP2();
-	listaboneco.desenharEntidade(*gerenciadorGrafico);
+	gerenciadorGrafico->centralizar(listaboneco.voltarInicio()->getPosicao());
 
 	gerenciadorGrafico->mostrar();
 	pausar();
@@ -75,7 +75,6 @@ void Fase::deletaProjetil(Espinho* pproj)
 {
 	if (pproj)
 	{
-		//std::cout << "vou deletar um corno" << endl;
 		gerenciadorColisoes.removerColidivel(gerenciadorColisoes.encontrar("bala"));
 		listaboneco.remover(pproj);
 		delete pproj;
@@ -97,39 +96,6 @@ void Fase::pausar()
 {
 	GerenciadorEventos* g = GerenciadorEventos::getTeclado();
 
-	/*if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::P))
-	{
-		setPodeAtirar(true);
-		podePausar = false;
-		while (!sf::Keyboard::isKeyPressed(sf::Keyboard::Key::R))
-		{
-		}
-		std::cout << "pause" << endl;
-		listaboneco.reiniciaRelogio();
-		relogiof->restart();
-		setPodeAtirar(false);
-		podePausar = true;
-	}*/
-	
-	/*if ((g->Teclado() == 9) && podePausar)
-	{
-		setPodeAtirar(true);
-		podePausar = false;
-
-
-	}
-	else if (!podePausar)
-	{
-		while (!(g->Teclado() == 10))
-		{
-
-		}
-		std::cout << "pause" << endl;
-		listaboneco.reiniciaRelogio();
-		relogiof->restart();
-		setPodeAtirar(false);
-		podePausar = true;
-	}*/
 	if (g->Teclado() == 9 && podePausar)
 	{
 		setPodeAtirar(false);

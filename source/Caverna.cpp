@@ -4,6 +4,7 @@
 Caverna::Caverna(sf::Clock* rf, GerenciadorGrafico* gg, string cb) :
 	Fase(rf, gg, cb)
 {
+	std::cout << "caverna" << endl;
 	pArmadilha = nullptr;
 	pSlimeR = nullptr;
 	incluir();
@@ -15,7 +16,7 @@ Caverna::Caverna(sf::Clock* rf, GerenciadorGrafico* gg, string cb) :
 
 Caverna::~Caverna()
 {
-	listaboneco.excluir();
+	//listaboneco.excluir();
 }
 
 void Caverna::incluir()
@@ -194,13 +195,12 @@ void Caverna::incluirFixos()
 	posicoes.clear();
 }
 
-bool Caverna::test()
+Caverna:: Situacao Caverna::fimFase()
 {
 	if (listaboneco.voltarInicio()->getPosicao().x >= 5810)
 	{
-		return true;
-
+		return terminarJogo;
 	}
-	else 
-		return false;
+	else
+		return continuar;
 }

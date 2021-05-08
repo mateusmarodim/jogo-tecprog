@@ -114,6 +114,8 @@ void Lista<LT>::excluir()
 
 		paux = pFim;
 	}
+	pFim = nullptr;
+	pPrimeiro = nullptr;
 }
 
 template<typename LT>

@@ -21,6 +21,7 @@ public:
 	void atualizar(float t);
 	void reiniciaRelogio();
 
+
 	EntidadeColidivel* voltarInicio();
 	EntidadeColidivel* irProx();
 

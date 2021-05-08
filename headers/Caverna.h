@@ -24,6 +24,6 @@ public:
 	void incluirBau();
 	void incluirFixos();
 
-	bool test();
+	virtual Situacao fimFase();
 };
 
