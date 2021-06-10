@@ -6,8 +6,6 @@ class Fase;
 
 namespace inimigo
 {
-
-
 	class SlimeEspinhoso : public Inimigo
 	{
 	private:
@@ -20,7 +18,6 @@ namespace inimigo
 		~SlimeEspinhoso();
 
 		void atualizar(float t);
-		void colidir(EntidadeColidivel* outro, std::string tipoEntidade);
 		void atirar();
 	};
 }

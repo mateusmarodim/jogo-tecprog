@@ -1,7 +1,6 @@
 #pragma once
 #include "Lista.h"
 #include "EntidadeColidivel.h"
-//#include "GerenciadorGrafico.h"
 
 class ListaEntidade
 {
@@ -21,9 +20,7 @@ public:
 	void atualizar(float t);
 	void reiniciaRelogio();
 
-
 	EntidadeColidivel* voltarInicio();
 	EntidadeColidivel* irProx();
-
 };
 

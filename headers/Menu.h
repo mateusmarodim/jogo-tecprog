@@ -1,21 +1,30 @@
-/*#pragma once
-#include "GerenciadorEventos.h"
+#pragma once
+#include "GerenciadorTeclado.h"
 #include "GerenciadorGrafico.h"
 
 class Menu
 {
 private:
-	int selectedId;
-	sf::Font font;
-	sf::Text menu[3];
+	string caminhoTextura;
+	GerenciadorGrafico* gg;
+	bool selecionarFase;
 
 public:
-	Menu(float altura, float largura, GerenciadorGrafico& g);
+	Menu(const string Caminho=nullptr, GerenciadorGrafico* g =nullptr);
 	~Menu();
 
-	void desenhar(GerenciadorGrafico& g);
-	void Up();
-	void Down();
+	enum Opcao 
+	{
+		espera,novoJogo,selva,caverna,sair
+	};
+
+	void inicializar();
+	void desenhar();
+	void atualizar();
+	void trocarMenu(string Caminho);
+	void setSelecionarFase(bool sf);
+	const bool getSelecionarFase() const;
+
+	Opcao opcaoSelecionada();
 };
 
-*/

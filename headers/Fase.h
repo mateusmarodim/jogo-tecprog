@@ -1,5 +1,6 @@
 #pragma once
 #include "GerenciadorColisoes.h"
+#include "GerenciadorTeclado.h"
 #include "ListaEntidade.h"
 #include "SlimeSorridente.h"
 #include "SlimeAmigo.h"
@@ -8,6 +9,7 @@
 #include "Bau.h"
 #include "Piso.h"
 #include <vector>
+#include <ctime>
 
 using namespace inimigo;
 using namespace jogador;
@@ -17,6 +19,7 @@ class Fase
 protected:
 	GerenciadorGrafico* gerenciadorGrafico;
 	GerenciadorColisoes gerenciadorColisoes;
+
 	ListaEntidade listaboneco;
 	const string caminhoBackground;
 
@@ -56,13 +59,14 @@ public:
 	virtual Situacao fimFase() = 0;
 	
 	virtual void deletaProjetil(Espinho* pproj);
-
 	virtual void setPodeAtirar(bool ppa);
-	virtual bool getPodeAtirar();
+	virtual const bool getPodeAtirar() const;
 
-	
 	virtual void pausar();
 	virtual void gerenciarP2();
 
 };
+
+
+
 

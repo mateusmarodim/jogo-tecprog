@@ -42,21 +42,21 @@ void Lista<LT>::ElementoLista<ET>::setInfo(ET inf)
 
 template <typename LT>
 template <typename ET>
- Lista<LT>::ElementoLista<ET> *Lista<LT>::ElementoLista<ET>::getProx()
+ Lista<LT>::ElementoLista<ET> *Lista<LT>::ElementoLista<ET>::getProx() const
 {
 	return pProx;
 }
 
  template <typename LT>
  template <typename ET>
-Lista<LT>::ElementoLista<ET> *Lista<LT>::ElementoLista<ET>::getAnt()
+Lista<LT>::ElementoLista<ET> *Lista<LT>::ElementoLista<ET>::getAnt() const
  {
 	return pAnt;
  }
 
  template <typename LT>
  template <typename ET>
-ET Lista<LT>::ElementoLista<ET>::getInfo()
+const ET Lista<LT>::ElementoLista<ET>::getInfo() const
  {
 	return info;
  }
@@ -106,8 +106,6 @@ void Lista<LT>::excluir()
 
 	while (paux != nullptr)
 	{
-		//delete paux->getInfo();
-
 		pFim = pFim->getAnt();
 
 		delete paux;
@@ -122,11 +120,11 @@ template<typename LT>
 void Lista<LT>::remover(LT info)
 {
 	ElementoLista<LT>* paux = nullptr;
-	paux = pFim;
+	paux = pPrimeiro;
 
 	while (paux != nullptr && paux->getInfo()!=info)
 	{
-		paux = paux->getAnt();
+		paux = paux->getProx();
 	}
 
 	if (paux->getAnt())

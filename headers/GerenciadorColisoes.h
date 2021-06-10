@@ -17,8 +17,7 @@ public:
     void removerColidivel(std::multimap <std::string, EntidadeColidivel*>::iterator posicao); //remove o elemento da posicao fornecida do multimapa
     void esvaziarColidiveis();
     void verificaColisoes();
-    bool estaoColidindo(EntidadeColidivel* este, EntidadeColidivel* outro/*, float empurrar*/);
+    const bool estaoColidindo(EntidadeColidivel* este, EntidadeColidivel* outro/*, float empurrar*/);
     std::multimap <std::string, EntidadeColidivel*>::iterator encontrar(std::string tipoEnt);
     void imprimir();
-
 };

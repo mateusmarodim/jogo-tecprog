@@ -1,5 +1,4 @@
 #pragma once
-
 template <typename LT>
 class Lista
 {
@@ -21,9 +20,9 @@ private:
 		void setAnt(ElementoLista* pa);
 		void setInfo(ET inf);
 
-		ElementoLista* getProx();
-		ElementoLista* getAnt();
-		ET getInfo();
+		ElementoLista* getProx() const;
+		ElementoLista* getAnt() const;
+		const ET getInfo() const;
 	};
 
 	ElementoLista<LT>* pPrimeiro;

@@ -21,12 +21,11 @@ public:
 
 	void mostrar();
 	void limpar(int r = 0, int g = 0, int b = 0);
-	void desenhar(string caminho, Vetor2F posicao /*Vetor2F escala*/);
+	void desenhar(string caminho, Vetor2F posicao);
 	bool carregarTextura(string caminho);
 	void centralizar(Vetor2F centro);
-	sf::RenderWindow* getJanela();
+	sf::RenderWindow* getJanela()const;
 	const Vetor2F getTamanho(const std::string& caminho) const;
-	//void desenharRetanguloSolido(const Vetor2F centro, const Vetor2F dimensao, const Cor cor) const;
 
 };
 

@@ -1,8 +1,6 @@
 #pragma once
 #include "Vetor2D.h"
 #include "GerenciadorGrafico.h"
-#include "GerenciadorEventos.h"
-
 
 class EntidadeColidivel 
 {
@@ -15,7 +13,6 @@ protected:
 
 public:
 	EntidadeColidivel(const Vetor2F Pos = (0.0, 0.0),const Vetor2F Vel = (0.0, 0.0),const Vetor2F Tam = (0.0, 0.0), const string CaminhoText = nullptr);
-	//EntidadeColidivel();
 	virtual ~EntidadeColidivel();
 
 	virtual void atualizar(float t) = 0;
@@ -25,10 +22,7 @@ public:
 	virtual const Vetor2F getPosicao()const;
 	virtual const Vetor2F getTamanho()const;
 	virtual const Vetor2F getVelocidade()const;
-	virtual const sf::Clock* getTempo();
+	virtual const sf::Clock* getTempo()const;
 	virtual void reiniciaRelogio();
-	
-
-
 };
 

@@ -11,17 +11,12 @@ public:
 
 	Vetor2D operator +(Vetor2D v);
 	void operator +=(Vetor2D v);
-	//void operator =(Vetor2D v);
 	Vetor2D operator -(Vetor2D v);
 	Vetor2D operator *(int i);
 	Vetor2D operator *(float f);
 	Vetor2D operator *(double d);
 	bool operator <=(Vetor2D v);
 	T operator *(Vetor2D v);
-	T modulo();
-	Vetor2D versor();
-	//proje��o desse vetor na dire��o de V
-	Vetor2D projOrtogonal(Vetor2D v);
 
 };
 

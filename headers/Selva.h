@@ -9,7 +9,6 @@ private:
 
 public:
 	Selva(sf::Clock* rf, GerenciadorGrafico* gg, string cb);
-	//Selva();
 	~Selva();
 
 	void incluir();

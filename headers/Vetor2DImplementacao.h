@@ -28,13 +28,6 @@ void Vetor2D<T>::operator +=(Vetor2D<T> v)
 	y += v.y;
 }
 
-/*template<typename T>
-inline void Vetor2D<T>::operator=(Vetor2D v)
-{
-	x = v.x;
-	y = v.y;
-}*/
-
 template <typename T>
 Vetor2D<T> Vetor2D<T>::operator -(Vetor2D<T> v)
 {
@@ -73,22 +66,4 @@ bool Vetor2D<T>::operator <=(Vetor2D v)
 		return true;
 	}
 	return false;
-}
-
-template <typename T>
-T Vetor2D<T>::modulo()
-{
-	return sqrt(pow(x, 2) + pow (* y, 2));
-}
-
-template <typename T>
-Vetor2D<T> Vetor2D<T>::versor()
-{
-	return this ->operator *(1.0 / modulo());
-}
-
-template <typename T>
-Vetor2D<T> Vetor2D<T>::projOrtogonal(Vetor2D<T> v)
-{
-	return v*(this->operator*(v) / pow(v.moduloe(), 2));
 }
