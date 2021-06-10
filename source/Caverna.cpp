@@ -1,22 +1,16 @@
 #include "Caverna.h"
 #include <iostream>
 
-Caverna::Caverna(sf::Clock* rf, GerenciadorGrafico* gg, string cb) :
+Caverna::Caverna(sf::Clock* rf,GerenciadorGrafico* gg, string cb) :
 	Fase(rf, gg, cb)
 {
-	std::cout << "caverna" << endl;
 	pArmadilha = nullptr;
 	pSlimeR = nullptr;
 	incluir();
 }
 
-//Caverna::Caverna()
-//{
-//}
-
 Caverna::~Caverna()
 {
-	//listaboneco.excluir();
 }
 
 void Caverna::incluir()
@@ -30,8 +24,8 @@ void Caverna::incluir()
 
 void Caverna::desenharBackground()
 {
-	float posicaoX = 2270;
-	float posicaoY = 1200;
+	float posicaoX = 2570;
+	float posicaoY = 1100;
 	gerenciadorGrafico->desenhar(caminhoBackground, Vetor2F(posicaoX, posicaoY));
 }
 
@@ -49,18 +43,14 @@ void Caverna::incluirSlimeDaSelva()
 	posicoes.push_back(Vetor2F(4365.0, 1735.0));
 	posicoes.push_back(Vetor2F(5410.0, 1735.0));
 
-	//int i = posicoes.size();
-	//std::cout << i << endl;
 	for (int j = 0; j < i; j++)
 	{
 		int r = rand() % (i - j);
 		Vetor2F temp = posicoes[r];
-		posicoes[r] = posicoes[i - j - 1];
-		posicoes[i - j - 1] = temp;
 
-		pSlimeDS = new SlimeDaSelva(Vetor2F(posicoes[i - j - 1]));
+		pSlimeDS = new SlimeDaSelva(Vetor2F(posicoes[r]));
 		adicionaEntidade(pSlimeDS, "inimigo");
-		posicoes.pop_back();
+		posicoes.erase(posicoes.begin() + r);
 	}
 	posicoes.clear();
 }
@@ -79,18 +69,14 @@ void Caverna::incluirSlimeEspinhoso()
 	posicoes.push_back(Vetor2F(4215.0, 1740.0));
 	posicoes.push_back(Vetor2F(5690.0, 1740.0));
 
-	//int i = posicoes.size();
-
 	for (int j = 0; j < i; j++)
 	{
 		int r = rand() % (i - j);
 		Vetor2F temp = posicoes[r];
-		posicoes[r] = posicoes[i - j - 1];
-		posicoes[i - j - 1] = temp;
-
-		pSlimeE = new SlimeEspinhoso(this, Vetor2F(posicoes[i - j - 1]));
+		
+		pSlimeE = new SlimeEspinhoso(this, Vetor2F(posicoes[r]));
 		adicionaEntidade(pSlimeE, "inimigo");
-		posicoes.pop_back();
+		posicoes.erase(posicoes.begin() + r);
 	}
 	posicoes.clear();
 }
@@ -111,18 +97,15 @@ void Caverna::incluirBau()
 	posicoes.push_back(Vetor2F(4140.0, 1740));
 	posicoes.push_back(Vetor2F(5600.0, 1740));
 
-	//int i = posicoes.size();
-
 	for (int j = 0; j < i; j++)
 	{
 		int r = rand() % (i - j);
 		Vetor2F temp = posicoes[r];
-		posicoes[r] = posicoes[i - j - 1];
-		posicoes[i - j - 1] = temp;
 
-		pBau = new Bau(Vetor2F(posicoes[i - j - 1]));
+
+		pBau = new Bau(Vetor2F(posicoes[r]));
 		adicionaEntidade(pBau, "caixote");
-		posicoes.pop_back();
+		posicoes.erase(posicoes.begin() + r);
 	}
 	posicoes.clear();
 }
@@ -141,27 +124,22 @@ void Caverna::incluirArmadilha()
 	posicoes.push_back(Vetor2F(3880.0, 1730.0));
 	posicoes.push_back(Vetor2F(5720.0, 1730.0));
 
-	//int i = posicoes.size();
-
 	for (int j = 0; j < i; j++)
 	{
 		int r = rand() % (i - j);
 		Vetor2F temp = posicoes[r];
-		posicoes[r] = posicoes[i - j - 1];
-		posicoes[i - j - 1] = temp;
 
-		pArmadilha = new Armadilha(Vetor2F(posicoes[i - j - 1]));
+
+		pArmadilha = new Armadilha(Vetor2F(posicoes[r]));
 		adicionaEntidade(pArmadilha, "armadilha");
-		posicoes.pop_back();
+		posicoes.erase(posicoes.begin() + r);
 	}
 	posicoes.clear();
 }
 
 void Caverna::incluirFixos()
 {
-
 	posicoes.push_back(Vetor2F(4830, 1650));
-
 	posicoes.push_back(Vetor2F(300.0, 180.0));
 	posicoes.push_back(Vetor2F(300.0, 439.0));
 	posicoes.push_back(Vetor2F(1300, 839.0));
@@ -172,7 +150,6 @@ void Caverna::incluirFixos()
 	posicoes.push_back(Vetor2F(3565, 1380));
 	posicoes.push_back(Vetor2F(4330, 1780));
 	posicoes.push_back(Vetor2F(5330, 1780));
-
 
 	int i = posicoes.size();
 

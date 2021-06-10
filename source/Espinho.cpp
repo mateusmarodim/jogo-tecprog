@@ -4,7 +4,7 @@
 Espinho::Espinho(const Vetor2F Pos,const Vetor2F Vel,const Vetor2F Tam):
 EntidadeColidivel(Pos, Vel, Tam, "texture/projetil.png")
 {
-    //deletar = false;
+
 }
 
 Espinho::~Espinho()
@@ -20,18 +20,5 @@ void Espinho::atualizar(float t)
 
 void Espinho::colidir(EntidadeColidivel* outro, string tipoEntidade)
 {
-    if (tipoEntidade == "jogador") 
-    {
-        //std::cout << "hasta la vista baby ;)" << std::endl;
-    }
-}
 
-/*void Projetil::setDeletar()
-{
- 
 }
-
-bool Projetil::getDeletar()
-{
-    return deletar;
-}*/

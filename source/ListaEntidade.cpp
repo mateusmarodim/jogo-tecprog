@@ -14,7 +14,6 @@ ListaEntidade::~ListaEntidade()
 void ListaEntidade::inserir(EntidadeColidivel* info)
 {
 	lp.inserir(info);
-	std::cout << info << endl;
 }
 
 void ListaEntidade::remover(EntidadeColidivel* info)
@@ -32,8 +31,7 @@ void ListaEntidade::excluir()
 		pp = lp.irProximo();
 	}
 	lp.excluir();
-	
-	//arrumar aterrar os ponteiros para o inicio e fim da lista
+
 }
 
 
@@ -44,7 +42,6 @@ void ListaEntidade::iniciliazarEntidade(GerenciadorGrafico& g)
 	{
 		
 		pp->inicializar(g);
-		//std::cout << "oi" << std::endl;
 		pp = lp.irProximo();
 	}
 }

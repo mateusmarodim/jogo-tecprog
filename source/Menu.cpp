@@ -1,47 +1,74 @@
-/*#include "Menu.h"
+#include "Menu.h"
 #include <iostream>
 
-Menu::Menu(float altura, float largura, GerenciadorGrafico& g)
+Menu::Menu(const string Caminho, GerenciadorGrafico* g)
 {
-	if (!font.loadFromFile("arial.ttf"))
-	{
-		std::cout << "sem menu pra vc hj" << endl;
-	}
-
-	menu[0].setFont(font);
-	menu[0].setColor(sf::Color::Red);
-	menu[0].setString("Play");
-	menu[0].setPosition(Vetor2F(altura/2,largura/4)*1);
-
-	menu[1].setFont(font);
-	menu[1].setColor(sf::Color::White);
-	menu[1].setString("Options");
-	menu[1].setPosition(sf::Vector2f(width / 2, height / (MAX_NUMBER_OF_ITEMS + 1) * 2));
-
-	menu[2].setFont(font);
-	menu[2].setColor(sf::Color::White);
-	menu[2].setString("Exit");
-	menu[2].setPosition(sf::Vector2f(width / 2, height / (MAX_NUMBER_OF_ITEMS + 1) * 3));
-
+	caminhoTextura = Caminho;
+	gg = g;
+	selecionarFase = true;
 }
 
 Menu::~Menu()
 {
 }
 
-void Menu::desenhar(GerenciadorGrafico& g)
+void Menu::inicializar()
 {
-	for (int i = 0; i < 3; i++)
+	gg->carregarTextura(caminhoTextura);
+}
+
+void Menu::desenhar()
+{
+	gg->desenhar(caminhoTextura, Vetor2F(400.0,300.0));
+}
+
+void Menu::atualizar()
+{
+	desenhar();
+	gg->mostrar();
+	gg->limpar();
+}
+
+void Menu::trocarMenu(string Caminho)
+{
+	caminhoTextura = Caminho;
+	gg->carregarTextura(caminhoTextura);
+}
+
+void Menu::setSelecionarFase(bool sf)
+{
+	selecionarFase = sf;
+}
+
+const bool Menu::getSelecionarFase() const
+{
+	return selecionarFase;
+}
+
+Menu::Opcao  Menu::opcaoSelecionada()
+{
+	GerenciadorTeclado* gt = GerenciadorTeclado::getTeclado();
+
+	if (gt->tecladoUtilidade()==12)
 	{
-		g.desenhar(menu[i]);
+		return novoJogo;
 	}
+
+	if (gt->tecladoUtilidade()==13)
+	{
+		return selva;
+	}
+
+	if (gt->tecladoUtilidade() == 14)
+	{
+		return caverna;
+	}
+
+	if (gt->tecladoUtilidade() == 15)
+	{
+		return sair;
+	}
+
+	return espera;
 }
 
-void Menu::Up()
-{
-}
-
-void Menu::Down()
-{
-}
-*/

@@ -15,7 +15,7 @@ namespace jogador
     void SlimeAmigo::atualizar(float t)
     {
         float teste = relogio.getElapsedTime().asSeconds();
-        GerenciadorEventos* g = GerenciadorEventos::getTeclado();
+        GerenciadorTeclado* gt = GerenciadorTeclado::getTeclado();
 
         if (vida == 0)
         {
@@ -23,20 +23,20 @@ namespace jogador
             vida = 3;
         }
 
-        if (g->Teclado() == 0)
+        if (gt->tecladoJogador() == 0)
         {
             velocidade.x = (0.0f);
         }
 
-        if (g->Teclado() == 4)
+        if (gt->tecladoJogador() == 4)
         {
             velocidade.x = -150.0f;
         }
-        if (g->Teclado() == 5)
+        if (gt->tecladoJogador() == 5)
         {
             velocidade.x = 150.0f;
         }
-        if (g->Teclado() == 11 && teleporte)
+        if (gt->tecladoJogador() == 11 && teleporte)
         {
             posicao.x += 100.0f;
             teleporte = false;
@@ -47,9 +47,9 @@ namespace jogador
             relogio.restart();
         }
 
-        if (g->Teclado() == 6 && podepular)
+        if (gt->tecladoJogador() == 6 && podePular)
         {
-            podepular = false;
+            podePular = false;
             velocidade.y = -sqrt(2.0f * 981.0f * 150.0f);
 
         }
@@ -63,7 +63,6 @@ namespace jogador
         posicao.x += velocidade.x * t;
         posicao.y += velocidade.y * t;
 
-        // std::cout << posicao.x<<std::endl;
     }
 
 }

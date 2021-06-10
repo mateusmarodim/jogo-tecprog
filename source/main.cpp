@@ -1,10 +1,9 @@
-#include "Principal.h"
-#include "Vetor2D.h"
+#include "Slimers.h"
 #include <iostream>
 
 int main()
 {
-	Principal principal;
+	Slimers principal;
 
 	principal.executar();
 

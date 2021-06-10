@@ -22,13 +22,8 @@ Fase::Fase(sf::Clock* rf, GerenciadorGrafico* gg,string cb) :
 	podePausar = true;
 }
 
-//Fase::Fase()
-//{
-//}
-
 Fase::~Fase()
 {
-	//listaboneco.excluir();
 }
 
 void Fase::adicionaEntidade(EntidadeColidivel* entidade, string tipoEntidade)
@@ -54,6 +49,7 @@ void Fase::atualizar(float t)
 	gerenciarP2();
 	gerenciadorGrafico->centralizar(listaboneco.voltarInicio()->getPosicao());
 
+	//gerenciadorColisoes.imprimir();
 	gerenciadorGrafico->mostrar();
 	pausar();
 }
@@ -75,7 +71,7 @@ void Fase::deletaProjetil(Espinho* pproj)
 {
 	if (pproj)
 	{
-		gerenciadorColisoes.removerColidivel(gerenciadorColisoes.encontrar("bala"));
+		gerenciadorColisoes.removerColidivel(gerenciadorColisoes.encontrar("espinho"));
 		listaboneco.remover(pproj);
 		delete pproj;
 	}
@@ -86,7 +82,7 @@ void Fase::setPodeAtirar(bool ppa)
 	podeAtirar = ppa;
 }
 
-bool Fase::getPodeAtirar()
+const bool Fase::getPodeAtirar()const
 {
 	return podeAtirar;
 }
@@ -94,14 +90,14 @@ bool Fase::getPodeAtirar()
 
 void Fase::pausar()
 {
-	GerenciadorEventos* g = GerenciadorEventos::getTeclado();
+	GerenciadorTeclado* gTeclado = GerenciadorTeclado::getTeclado();
 
-	if (g->Teclado() == 9 && podePausar)
+	if (gTeclado->tecladoUtilidade() == 9 && podePausar)
 	{
 		setPodeAtirar(false);
 		podePausar = false;
 	}
-	if (g->Teclado() == 10 && !podePausar)
+	if (gTeclado->tecladoUtilidade() == 10 && !podePausar)
 	{
 		std::cout << "pause" << endl;
 		listaboneco.reiniciaRelogio();
@@ -109,24 +105,21 @@ void Fase::pausar()
 		setPodeAtirar(true);
 		podePausar = true;
 	}
-
-	
-
 }
 
 void Fase::gerenciarP2()
 {
-	GerenciadorEventos* g = GerenciadorEventos::getTeclado();
+	GerenciadorTeclado* gTeclado = GerenciadorTeclado::getTeclado();
 
 	if (!pJogador2)
 	{
-		if (g->Teclado()==7)
+		if (gTeclado->tecladoUtilidade()==7)
 		{
 			pJogador2 = new SlimeAmigo((pJogador1->getPosicao()));
 			adicionaEntidade(pJogador2, "jogador2");
 		}
 	}
-	else if (g->Teclado() == 8)
+	else if (gTeclado->tecladoUtilidade() == 8)
 	{
 		gerenciadorColisoes.removerColidivel(gerenciadorColisoes.encontrar("jogador2"));
 		listaboneco.remover(pJogador2);

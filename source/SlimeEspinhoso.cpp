@@ -10,6 +10,7 @@ namespace inimigo
 		proj = nullptr;
 		fase = fs;
 		posxInicial = Pos.x;
+		podePular = false;
 	}
 
 	SlimeEspinhoso::~SlimeEspinhoso()
@@ -19,7 +20,6 @@ namespace inimigo
 
 	void SlimeEspinhoso::atualizar(float t)
 	{
-		// float tempo = cooldownTiro.getElapsedTime().asSeconds();
 		t = relogio.getElapsedTime().asSeconds();
 
 		if (proj)
@@ -34,25 +34,14 @@ namespace inimigo
 		if (t >= 5.0 && fase->getPodeAtirar())
 		{
 			atirar();
-			//std::cout << "atirei um corno" << endl;
 			relogio.restart();
-			//if(fase->pausar())
 		}
 
-	}
-
-	void SlimeEspinhoso::colidir(EntidadeColidivel* outro, std::string tipoEntidade)
-	{
-		//std::cout << "ai" << std::endl;
 	}
 	void SlimeEspinhoso::atirar()
 	{
 		proj = new Espinho(Vetor2F(getPosicao().x - 20.0f, getPosicao().y), Vetor2F(10.0, 0.0), Vetor2F(0.0, 0.0));
-		//std::cout << "ta criado" << std::endl;
-		fase->adicionaEntidade(proj, "bala");
-
-		//if((proj->getPosicao().x-getPosicao().x))
-
+		fase->adicionaEntidade(proj, "espinho");
 	}
 }
 

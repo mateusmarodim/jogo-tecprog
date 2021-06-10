@@ -7,9 +7,8 @@ namespace jogador
     Personagem(Pos,Vel,Tam,CaminhoText)
 {
     velocidade.y = 0;
-    vida = 3;
-    bool pular = false;
-    bool podepular = true;
+    vida = 5;
+    bool podePular = true;
 }
 
 Jogador::~Jogador()
@@ -33,7 +32,7 @@ void Jogador::colidir(EntidadeColidivel* outro, std::string tipoEntidade)
         {
             vida--;
             relogio.restart();
-            std::cout << "Doeu >.< " << " " << vida << std::endl;
+            std::cout << "Vidas :" << vida << std::endl;
         }
 
         if (intersectaX > intersectaY)
@@ -57,22 +56,6 @@ void Jogador::colidir(EntidadeColidivel* outro, std::string tipoEntidade)
         }
     }
 
-    /*if (tipoEntidade == "tile")
-    {
-
-        if (this->posicao.y < outro->getPosicao().y)
-        {
-            pular = true;
-            podepular = true;
-            posicao.y = posicao.y - .3f;
-            velocidade.y = 0.0f;
-        }
-        else
-        {
-            posicao.y = posicao.y + .3f;
-        }
-
-    }*/
 
     if (tipoEntidade == "plataformamovedica")
     {
@@ -94,7 +77,7 @@ void Jogador::colidir(EntidadeColidivel* outro, std::string tipoEntidade)
             }
             else
             {
-                podepular = true;
+                podePular = true;
                 posicao.y += 1 * intersectaY;
             }
 
@@ -119,7 +102,7 @@ void Jogador::colidir(EntidadeColidivel* outro, std::string tipoEntidade)
 
         else
         {
-            podepular = true;
+            podePular = true;
             if (distancia.y > 0)
             {
 
@@ -135,8 +118,6 @@ void Jogador::colidir(EntidadeColidivel* outro, std::string tipoEntidade)
     }
     if (tipoEntidade == "armadilha")
     {
-        // if (cooldown >= 2.0)
-        // {
              if (this->posicao.y < outro->getPosicao().y)
              {
                  posicao.x = posicao.x - 100.f;
@@ -145,8 +126,6 @@ void Jogador::colidir(EntidadeColidivel* outro, std::string tipoEntidade)
              {
                  posicao.x = posicao.x - 100.f;
              }
-             // cooldownDano.restart();
-        //  }
 
       }
 
@@ -155,7 +134,7 @@ void Jogador::colidir(EntidadeColidivel* outro, std::string tipoEntidade)
 
           if (intersectaX > intersectaY)
           {
-              podepular = true;
+              podePular = true;
               if (distancia.x > 0)
               {
                   posicao.x += -1 * intersectaX;
@@ -170,12 +149,11 @@ void Jogador::colidir(EntidadeColidivel* outro, std::string tipoEntidade)
           {
               if (distancia.y > 0)
               {
-                  //podepular = true;
                   posicao.y += -1 * intersectaY;
               }
               else
               {
-                  podepular = true;
+                  podePular = true;
                   posicao.y += 1 * intersectaY;
               }
 
@@ -186,6 +164,13 @@ void Jogador::colidir(EntidadeColidivel* outro, std::string tipoEntidade)
 
       if (tipoEntidade == "king")
       {
+          if (cooldown >= 2.0)
+          {
+              vida--;
+              relogio.restart();
+              std::cout <<"Vidas :" << vida << std::endl;
+          }
+
           if (intersectaX > intersectaY)
           {
               if (distancia.x > 0)
@@ -197,17 +182,16 @@ void Jogador::colidir(EntidadeColidivel* outro, std::string tipoEntidade)
                   posicao.x += 1 * intersectaX;
               }
           }
-          //else
-          //{
-          //    if (distancia.y > 0)
-          //    {
-          //        posicao.y += -1 * intersectaY;
-          //    }
-          //    else
-          //    {
-          //        posicao.y += 1 * intersectaY;
-          //    }
-          //}
+      }
+
+      if (tipoEntidade == "espinho")
+      {
+          if (cooldown >= 2.0)
+          {
+              vida--;
+              relogio.restart();
+              std::cout << "Vidas :" << vida << std::endl;
+          }
       }
   }
 }

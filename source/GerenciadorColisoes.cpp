@@ -8,14 +8,7 @@ GerenciadorColisoes::GerenciadorColisoes()
 
 GerenciadorColisoes::~GerenciadorColisoes()
 {
-    /*std::multimap<std::string, EntidadeColidivel*>::iterator itr;
-    itr = colidiveis.end();
 
-    while (itr != colidiveis.begin())
-    {
-        colidiveis.erase(itr);
-        itr--;
-    }*/
 }
 
 void GerenciadorColisoes::inserirColidivel(std::string tipoEntidade, EntidadeColidivel* ec)
@@ -56,7 +49,6 @@ void GerenciadorColisoes::verificaColisoes()
             {
                 if(estaoColidindo(itr->second, itrOutro->second))
                 {
-                    //system("cls");
                     itr->second->colidir(itrOutro->second, itrOutro->first);
                     itrOutro->second->colidir(itr->second,itr->first);
                 }
@@ -68,12 +60,15 @@ void GerenciadorColisoes::verificaColisoes()
         if(itrOutro!=colidiveis.end())
             itrOutro++;
     }
-    //std::cout <<"vamos com calma ae"<<std::endl;
 }   
 
-bool GerenciadorColisoes::estaoColidindo(EntidadeColidivel* este, EntidadeColidivel* outro)
+const bool GerenciadorColisoes::estaoColidindo(EntidadeColidivel* este, EntidadeColidivel* outro)
 {
-   
+    if (este == nullptr || outro == nullptr)
+    {
+        std::cout << este << "||" << outro << endl;
+        return false;
+    }
     Vetor2F posicaoEste = este->getPosicao();
     Vetor2F tamanhoEste = este->getTamanho();
 
@@ -98,7 +93,6 @@ bool GerenciadorColisoes::estaoColidindo(EntidadeColidivel* este, EntidadeColidi
     {
         return true;
     }else{
-       // system("cls");
         return false;
     }
 
@@ -108,12 +102,7 @@ std::multimap <std::string, EntidadeColidivel*>::iterator GerenciadorColisoes::e
 {
     std::multimap<std::string, EntidadeColidivel*>::iterator itr, itrend;
     itr = colidiveis.find(tipoEntidade);
-    //itrend=colidiveis.end();
 
-   /* while (itr != colidiveis.find(tipoEntidade))
-    {
-        itr++;
-    }*/
     return itr;
 }
 
@@ -127,5 +116,5 @@ void GerenciadorColisoes::imprimir()
         cout << itr->first
             << '\t' << itr->second << endl;
     }
-    std:: cout << endl;
+    std:: cout << "###############################################" << endl;
 }

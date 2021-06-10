@@ -3,13 +3,12 @@
 
 namespace inimigo
 {
-    SlimeRei::SlimeRei(/*Caverna* pc,*/ Jogador* pj, const  Vetor2F Pos, const  Vetor2F Vel, const  Vetor2F Tam) :
+    SlimeRei::SlimeRei(Jogador* pj, const  Vetor2F Pos, const  Vetor2F Vel, const  Vetor2F Tam) :
         Inimigo(Pos, Vel, Tam, "texture/king.png"),
-        /*pCaverna(pc),*/ pJogador(pj)
+        pJogador(pj)
     {
         podePular = true;
-        // velocidade.y = 100.0f;
-        // velocidade.x = 50.0f;
+
     }
 
     SlimeRei::~SlimeRei()
@@ -18,14 +17,21 @@ namespace inimigo
 
     void SlimeRei::atualizar(float t)
     {
+        float tempo = relogio.getElapsedTime().asSeconds();
         if (abs(getPosicao().x - pJogador->getPosicao().x) <= 250)
         {
-            mover();
+            if (tempo >= 1 && podePular)
+            {
+                podePular = false;
+                velocidade.y = -sqrt(2.0f * 981.0f * 150.0f);
+                relogio.restart();
+            }
+            velocidade.x = (((pJogador->getPosicao().x) - (getPosicao().x))) * 0.5;
         }
+
         velocidade.y += 700.0f * t;
         posicao += velocidade * t;
 
-        // std::cout << abs(posicao.x - pJogador->getPosicao().x) << std::endl;
     }
 
     void SlimeRei::colidir(EntidadeColidivel* outro, std::string tipoEntidade)
@@ -69,17 +75,5 @@ namespace inimigo
 
     }
 
-    void SlimeRei::mover()
-    {
-        float tempo = relogio.getElapsedTime().asSeconds();
-        if (tempo >= 1 && podePular)
-        {
-            podePular = false;
-            velocidade.y = -sqrt(2.0f * 981.0f * 150.0f);
-            relogio.restart();
-        }
-        velocidade.x = (((pJogador->getPosicao().x) - (getPosicao().x))) * 0.5;
-
-    }
 }
 

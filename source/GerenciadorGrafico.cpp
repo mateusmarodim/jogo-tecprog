@@ -2,8 +2,8 @@
 #include <iostream>
 
 GerenciadorGrafico::GerenciadorGrafico():
-	janela{ new sf::RenderWindow(sf::VideoMode(1080, 600), "Jogo")},//arrumar com os vetores que foram criados dps 1080,600
-	camera(sf::Vector2f(400,300),sf::Vector2f(800,600))//800,600
+	janela{ new sf::RenderWindow(sf::VideoMode(1080, 600), "Slimer")},
+	camera(sf::Vector2f(400,300),sf::Vector2f(1170,650))
 {
 	janela->setView(camera);
 }
@@ -40,7 +40,6 @@ void GerenciadorGrafico::desenhar(string caminho, Vetor2F posicao /*Vetor2F esca
 	sprite.setTexture(*text, true);
 	sprite.setOrigin(text->getSize().x*0.5,text->getSize().y*0.5);
 	sprite.setPosition(posicao.x, posicao.y);
-	//sprite.setScale(escala.x,escala.y);
 	janela->draw(sprite);
 
 }
@@ -70,7 +69,7 @@ void GerenciadorGrafico::centralizar(Vetor2F centro)
 	janela->setView(camera);
 }
 
-sf::RenderWindow* GerenciadorGrafico::getJanela()
+sf::RenderWindow* GerenciadorGrafico::getJanela() const
 {
 	return janela;
 }
@@ -86,11 +85,3 @@ const Vetor2F GerenciadorGrafico::getTamanho(const std::string& caminho) const {
 
 	return Vetor2F(dimensoes.x, dimensoes.y);
 }
-
-/*void GerenciadorGrafico::desenharRetanguloSolido(const Vetor2F centro, const Vetor2F dimensao, const Cor cor) const {
-	sf::RectangleShape retangulo = sf::RectangleShape({ dimensao.x, dimensao.y });
-	retangulo.setFillColor({ cor.r, cor.g, cor.b, cor.a });
-	retangulo.setOrigin(dimensao.x / 2, dimensao.y / 2);
-	retangulo.setPosition(centro.x, centro.y);
-	janela->draw(retangulo);
-}*/
