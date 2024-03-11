@@ -1,6 +1,6 @@
 #pragma once
-#include "Personagem.h"
-#include "Lista.h"
+#include "../headers/Personagem.h"
+#include "../headers/Lista.h"
 class ListaPersonagem
 {
 private:
@@ -11,7 +11,7 @@ public:
 	~ListaPersonagem();
 
 	void inserir(Personagem* info);
-	//void esvaziar();
+	void esvaziar();
 
 	void inicializarPersonagens(GerenciadorGrafico &g);
 	void atualizarPersonagens(float t);

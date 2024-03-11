@@ -1,6 +1,6 @@
 #pragma once
-#include "Inimigo.h"
-#include "Espinho.h"
+#include "../headers/Inimigo.h"
+#include "../headers/Espinho.h"
 
 class Fase;
 

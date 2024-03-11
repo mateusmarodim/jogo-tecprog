@@ -1,4 +1,4 @@
-#include "GerenciadorGrafico.h"
+#include "../headers/GerenciadorGrafico.h"
 #include <iostream>
 
 GerenciadorGrafico::GerenciadorGrafico():

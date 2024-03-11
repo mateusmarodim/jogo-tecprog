@@ -1,5 +1,5 @@
 #pragma once
-#include "Obstaculo.h"
+#include "../headers/Obstaculo.h"
 
 class Piso : public Obstaculo
 {

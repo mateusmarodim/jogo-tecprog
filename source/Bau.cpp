@@ -1,4 +1,4 @@
-#include "Bau.h"
+#include "../headers/../headers/Bau.h"
 
 Bau::Bau(const Vetor2F Pos,const  Vetor2F Vel ,const  Vetor2F Tam) :
     Obstaculo(Pos, Vel, Tam, "texture/caixote.png")

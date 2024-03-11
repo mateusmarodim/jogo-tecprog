@@ -1,4 +1,4 @@
-#include "Lista.h"
+#include "../headers/Lista.h"
 
 template <typename LT>
 template <typename ET>

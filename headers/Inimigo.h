@@ -1,5 +1,5 @@
 #pragma once
-#include "Personagem.h"
+#include "../headers/Personagem.h"
 
 namespace inimigo
 {

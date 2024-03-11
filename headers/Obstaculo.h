@@ -1,5 +1,5 @@
 #pragma once
-#include "EntidadeColidivel.h"
+#include "../headers/EntidadeColidivel.h"
 
 class Obstaculo : public EntidadeColidivel
 {

@@ -1,4 +1,4 @@
-#include "Armadilha.h"
+#include "../headers/../headers/Armadilha.h"
 
 Armadilha::Armadilha(const Vetor2F Pos,const  Vetor2F Vel,const  Vetor2F Tam):
 	Obstaculo(Pos, Vel, Tam, "texture/trap.png")

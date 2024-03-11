@@ -1,5 +1,5 @@
 #pragma once
-#include "Inimigo.h"
+#include "../headers/Inimigo.h"
 
 namespace inimigo
 {

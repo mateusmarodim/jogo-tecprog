@@ -1,6 +1,6 @@
 #pragma once
-#include "Inimigo.h"
-#include "Jogador.h"
+#include "../headers/Inimigo.h"
+#include "../headers/Jogador.h"
 
 using namespace jogador;
 

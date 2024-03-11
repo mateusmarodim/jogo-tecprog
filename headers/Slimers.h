@@ -1,7 +1,7 @@
 #pragma once
-#include "Selva.h"
-#include "Caverna.h"
-#include "Menu.h"
+#include "../headers/Selva.h"
+#include "../headers/Caverna.h"
+#include "../headers/Menu.h"
 
 class Slimers
 {

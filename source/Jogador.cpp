@@ -1,4 +1,4 @@
-#include "Jogador.h"
+#include "../headers/Jogador.h"
 #include <iostream>
 
 namespace jogador

@@ -1,4 +1,4 @@
-#include "Obstaculo.h"
+#include "../headers/Obstaculo.h"
 #include <iostream>
 
 Obstaculo::Obstaculo(const Vetor2F Pos,const  Vetor2F Vel,const  Vetor2F Tam,const string CaminhoText) :

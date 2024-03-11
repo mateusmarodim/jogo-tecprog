@@ -1,4 +1,4 @@
-#include "Selva.h"
+#include "../headers/Selva.h"
 #include <iostream>
 
 Selva::Selva(sf::Clock* rf, GerenciadorGrafico* gg, string cb):

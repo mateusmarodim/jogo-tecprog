@@ -1,7 +1,7 @@
 #pragma once
-#include "Fase.h"
-#include "Armadilha.h"
-#include "SlimeRei.h"
+#include "../headers/Fase.h"
+#include "../headers/Armadilha.h"
+#include "../headers/SlimeRei.h"
 
 class Caverna : public Fase
 {

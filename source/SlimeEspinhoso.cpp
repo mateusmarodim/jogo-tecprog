@@ -1,5 +1,5 @@
-#include "SlimeEspinhoso.h"
-#include "Fase.h"
+#include "../headers/SlimeEspinhoso.h"
+#include "../headers/Fase.h"
 #include <iostream>
 
 namespace inimigo

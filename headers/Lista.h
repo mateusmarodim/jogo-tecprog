@@ -41,6 +41,6 @@ public:
 	LT irProximo();
 };
 
-#include "ListaImplementacao.h"
+#include "../headers/ListaImplementacao.h"
 
 

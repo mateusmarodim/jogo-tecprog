@@ -1,13 +1,13 @@
 #pragma once
-#include "GerenciadorColisoes.h"
-#include "GerenciadorTeclado.h"
-#include "ListaEntidade.h"
-#include "SlimeSorridente.h"
-#include "SlimeAmigo.h"
-#include "SlimeEspinhoso.h"
-#include "SlimeDaSelva.h"
-#include "Bau.h"
-#include "Piso.h"
+#include "../headers/GerenciadorColisoes.h"
+#include "../headers/GerenciadorTeclado.h"
+#include "../headers/ListaEntidade.h"
+#include "../headers/SlimeSorridente.h"
+#include "../headers/SlimeAmigo.h"
+#include "../headers/SlimeEspinhoso.h"
+#include "../headers/SlimeDaSelva.h"
+#include "../headers/Bau.h"
+#include "../headers/Piso.h"
 #include <vector>
 #include <ctime>
 

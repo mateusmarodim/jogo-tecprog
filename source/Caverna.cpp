@@ -1,4 +1,4 @@
-#include "Caverna.h"
+#include "../headers/Caverna.h"
 #include <iostream>
 
 Caverna::Caverna(sf::Clock* rf,GerenciadorGrafico* gg, string cb) :

@@ -1,6 +1,6 @@
 #pragma once
 #include <cmath>
-#include "Vetor2D.h"
+#include "../headers/Vetor2D.h"
 
 template <typename T>
 Vetor2D<T>::Vetor2D(T X, T Y):

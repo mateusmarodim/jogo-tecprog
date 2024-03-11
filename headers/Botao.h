@@ -1,6 +1,6 @@
 #pragma once
-#include "Texto.h"
-#include "GerenciadorGrafico.h"
+#include "../headers/Texto.h"
+#include "../headers/GerenciadorGrafico.h"
 
 class Botao
 {

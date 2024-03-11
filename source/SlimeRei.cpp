@@ -1,4 +1,4 @@
-#include "SlimeRei.h"
+#include "../headers/SlimeRei.h"
 #include <iostream>
 
 namespace inimigo

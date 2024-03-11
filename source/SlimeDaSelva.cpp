@@ -1,4 +1,4 @@
-#include "SlimeDaSelva.h"
+#include "../headers/SlimeDaSelva.h"
 #include <iostream>
 
 namespace inimigo

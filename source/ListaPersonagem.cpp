@@ -1,7 +1,7 @@
-#include "ListaPersonagem.h"
+#include "../headers/ListaPersonagem.h"
 
 
-ListaPersonagem::ListaPersonagem():
+ListaPersonagem::ListaPersonagem()
 {
 }
 
@@ -24,7 +24,7 @@ void ListaPersonagem::inicializarPersonagens(GerenciadorGrafico &g)
 	{
 		p->inicializar(g);
 
-		p = irProximo();
+		p = lista.irProximo();
 	}
 }
 
@@ -63,5 +63,5 @@ void ListaPersonagem::destruirPersonagens()
 		p = lista.irProximo();
 	}
 
-	lista.esvaziar();
+	//lista.esvaziar();
 }

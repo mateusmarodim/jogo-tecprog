@@ -1,4 +1,4 @@
-#include "SlimeAmigo.h"
+#include "../headers/SlimeAmigo.h"
 
 namespace jogador
 {

@@ -1,6 +1,6 @@
 #pragma once
-#include "Selva.h"
-#include "Caverna.h"
+#include "../headers/Selva.h"
+#include "../headers/Caverna.h"
 
 //class Fase;
 

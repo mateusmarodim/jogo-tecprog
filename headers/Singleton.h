@@ -1,5 +1,5 @@
 /*#pragma once
-#include "GerenciadorEventos.h"
+#include "../headers/GerenciadorEventos.h"
 
 class Singleton
 {

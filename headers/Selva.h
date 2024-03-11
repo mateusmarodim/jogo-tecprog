@@ -1,6 +1,6 @@
 #pragma once
-#include "PlataformaMovedica.h"
-#include "Fase.h"
+#include "../headers/PlataformaMovedica.h"
+#include "../headers/Fase.h"
 
 class Selva : public Fase
 {

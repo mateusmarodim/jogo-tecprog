@@ -1,6 +1,6 @@
 #pragma once
-#include "Vetor2D.h"
-#include "GerenciadorGrafico.h"
+#include "../headers/Vetor2D.h"
+#include "../headers/GerenciadorGrafico.h"
 
 class EntidadeColidivel 
 {

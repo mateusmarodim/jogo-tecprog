@@ -1,5 +1,5 @@
 #pragma once
-#include "GerenciadorGrafico.h"
+#include "../headers/GerenciadorGrafico.h"
 class GerenciadorEventos
 {
 private:

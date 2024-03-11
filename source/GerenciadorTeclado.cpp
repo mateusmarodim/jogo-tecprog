@@ -1,4 +1,4 @@
-#include "GerenciadorTeclado.h"
+#include "../headers/GerenciadorTeclado.h"
 #include <iostream>
 
 GerenciadorTeclado::GerenciadorTeclado()

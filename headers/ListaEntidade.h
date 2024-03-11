@@ -1,6 +1,6 @@
 #pragma once
-#include "Lista.h"
-#include "EntidadeColidivel.h"
+#include "../headers/Lista.h"
+#include "../headers/EntidadeColidivel.h"
 
 class ListaEntidade
 {

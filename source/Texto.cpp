@@ -1,4 +1,4 @@
-#include "Texto.h"
+#include "../headers/Texto.h"
 
 Texto::Texto()
 {

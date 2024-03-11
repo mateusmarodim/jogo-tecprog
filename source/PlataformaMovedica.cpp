@@ -1,4 +1,4 @@
-#include "PlataformaMovedica.h"
+#include "../headers/PlataformaMovedica.h"
 #include <iostream>
 
 PlataformaMovedica::PlataformaMovedica(const Vetor2F Pos,const Vetor2F Vel,const Vetor2F Tam):

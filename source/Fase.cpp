@@ -1,4 +1,4 @@
-#include "Fase.h"
+#include "../headers/Fase.h"
 #include <iostream>
 
 Fase::Fase(sf::Clock* rf, GerenciadorGrafico* gg,string cb) :

@@ -1,4 +1,4 @@
-#include "Slimers.h"
+#include "../headers/Slimers.h"
 #include <iostream>
 
 int main()

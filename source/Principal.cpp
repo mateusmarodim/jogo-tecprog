@@ -1,6 +1,6 @@
-#include "Principal.h"
+#include "../headers/Principal.h"
 #include <iostream>
-//#include "Vetor2D.h"
+//#include "../headers/Vetor2D.h"
 
 Principal::Principal()
 	//teste(&relogio,&gerenciadorGrafico,"texture/back.png")

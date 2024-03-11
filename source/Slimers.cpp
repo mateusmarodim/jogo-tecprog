@@ -1,6 +1,6 @@
-#include "Slimers.h"
+#include "../headers/Slimers.h"
 #include <iostream>
-//#include "Vetor2D.h"
+//#include "../headers/Vetor2D.h"
 
 Slimers::Slimers()
 {

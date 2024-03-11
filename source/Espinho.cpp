@@ -1,4 +1,4 @@
-#include "Espinho.h"
+#include "../headers/Espinho.h"
 #include <iostream>
 
 Espinho::Espinho(const Vetor2F Pos,const Vetor2F Vel,const Vetor2F Tam):

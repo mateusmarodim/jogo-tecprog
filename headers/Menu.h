@@ -1,6 +1,6 @@
 #pragma once
-#include "GerenciadorTeclado.h"
-#include "GerenciadorGrafico.h"
+#include "../headers/GerenciadorTeclado.h"
+#include "../headers/GerenciadorGrafico.h"
 
 class Menu
 {
